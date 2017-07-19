@@ -1,22 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import ReduxPromise from "redux-promise";
 
-import App from './App';
-import reducers from "./reducers";
+import ArticleFeed from './article_feed';
 
-import registerServiceWorker from './registerServiceWorker';
+var defaultConfig = {
+  sites: 'share.staging.america.gov', 
+  size: '3', 
+  types: 'post', 
+  langs: 'en-US',
+  tags: '',
+  categories: 'About America',
+  uiDirection: 'horizontal',
+  uiStyle: ''
+};
 
-const createStoreWithMiddleware = applyMiddleware( ReduxPromise )( createStore );
+export const widgets =  {
 
-var root = document.getElementById( 'root' );  // domEl widget attaches to 
+  ArticleFeed: {
+    new: function( config ) {
+      return {
+        render: () => {
+          if ( !config || !config.selector ) {
+            console.log('Please add a valid DOM node to add component to');
+            return;
+          }
 
-ReactDOM.render(
-  <Provider store={ createStoreWithMiddleware(reducers) }>
-    <App { ...(root.dataset) } />
-  </Provider>,
-  root );  // what dom el are we going to attach to?
-
-registerServiceWorker();
+          ReactDOM.render (
+            <ArticleFeed 
+              sites={ config.sites || defaultConfig.sites }
+              size={ config.size || defaultConfig.size }
+              langs={ config.langs || defaultConfig.langs }
+              types={ config.types || defaultConfig.types }
+              tags={ config.tags || defaultConfig.tags }
+              categories={ config.categories || defaultConfig.categories }
+              uiDirection={ config.uiDirection || defaultConfig.uiDirection }
+              uiStyle={ config.uiStyle || defaultConfig.uiStyle }
+            />, document.querySelector( config.selector )
+          );
+        }
+      }
+    }
+  }
+}

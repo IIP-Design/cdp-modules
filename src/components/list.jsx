@@ -17,8 +17,8 @@ class List extends Component {
     };
 
     const DIRECTION = {
-      horizontal: 'horizontal',
-      vertical: 'vertical'
+      horizontal: 'row',
+      vertical: 'column'
     };
 
     let style = STYLES[config.uiStyle] || 'default',

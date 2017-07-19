@@ -23,17 +23,24 @@
   </head>
   <body>
     <noscript>
-      You need to enable JavaScript to run this app.
+      You need to enable JavaScript to view this component.
     </noscript>
-    <div id="root" 
-      data-sites="share.staging.america.gov"  
-      data-size="3" 
-      data-types="post" 
-      data-langs="en-US"
-      data-tags=""
-      data-categories=""
-      data-ui-direction="horizontal"
-      data-ui-style="blog"></div>
+    
+    <div id="feed">LOADING Component...</div>
+
+    <script>
+      var int = setInterval(loadWidget, 1000);
+
+      function loadWidget() {
+        if( CDP ) {
+           clearInterval(int);
+
+          CDP.widgets.ArticleFeed.new({
+            selector: '#feed'
+          }).render();
+        }
+      }
+    </script> 
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

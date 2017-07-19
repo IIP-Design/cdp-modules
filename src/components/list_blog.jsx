@@ -1,7 +1,5 @@
 import React from 'react';
 import BlogListItem from './list_blog_item';
-import './article.css';
-
 
 const BlogList= ( props ) => {
   const renderArticle = ( article ) => {
@@ -14,9 +12,9 @@ const BlogList= ( props ) => {
   }
 
   return (  
-    <div>
+    <section className={ `article-group` }>
       { props.articles.map( renderArticle ) }
-    </div>
+    </section>
   )
 }
 
