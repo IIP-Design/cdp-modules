@@ -9,7 +9,7 @@ var defaultConfig = {
   types: 'post', 
   langs: 'en-US',
   tags: '',
-  categories: 'About America',
+  categories: '',
   uiDirection: 'horizontal',
   uiStyle: ''
 };

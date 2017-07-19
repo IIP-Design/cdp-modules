@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
 import DefaultListItem from './list_default_item';
 
 const DefaultList= ( props ) => {
