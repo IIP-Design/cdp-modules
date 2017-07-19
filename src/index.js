@@ -14,6 +14,7 @@ var defaultConfig = {
   uiStyle: ''
 };
 
+// @todo add documentation
 export const widgets =  {
 
   ArticleFeed: {
