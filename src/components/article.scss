@@ -4,17 +4,20 @@ $tablet:   735px;
 $laptop:   900px; 
 $desktop:  1100px; 
 
-$font-color: #555;
+$font-color: #1D1D1D; //#555;
 $font-size: 1em;
 $font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 $header-font-size:  1.3em;
 $header-font-weight: 700;
-$header-color-link: #4183C4;
+$header-color-link: #192856; //#4183C4;
 
 $meta-font-size:  .9em;
 $meta-margin-top: .2em;
 $meta-color: #bbb;
+
+$align: center;
+$image-diameter: 220px;
 
 .article-header > a {
   text-decoration:  none;
@@ -32,17 +35,21 @@ $meta-color: #bbb;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  background: #fff;
   font-family: $font-family;
   font-size: $font-size;
   line-height: 1.4285em;
   color: $font-color;
+
+  p {
+    font-size: inherit;
+  }
 }
 
 .article-group_row {
   display: flex; 
   flex-flow: row wrap;
   align-items: flex-start;
+  justify-content: $align;
 
   article {
     flex-grow: 1;
@@ -55,11 +62,11 @@ $meta-color: #bbb;
     }
 
     @media (min-width: $laptop) { 
-        width: 25em;      // 400px -> 25*16 
+      width: 25em;        // 400px -> 25*16 
     }
 
     @media (min-width: $desktop) { 
-      flex-grow: 1;
+      flex-grow: 0;
       margin: .8em;
       width: 20em;       // 320px -> 20*16 
     }
@@ -83,12 +90,17 @@ $meta-color: #bbb;
 
 .article-blog {
   border-bottom: 1px solid #eee;
+  align-items: center;
 
   .article-media {
-    flex-basis: 22em;
+    flex-basis: 15em;
     flex-grow: 1;
     @media (min-width: $tablet) { 
       margin-right: 1em;
+    }
+
+    .article-image_rectangle {
+      margin-right: .5em;
     }
   }
 
@@ -114,10 +126,19 @@ $meta-color: #bbb;
   overflow: hidden;
   width: 100%;
   display: block;
-  min-height: 260px;
+  min-height: 220px;
   background-repeat: none;
   background-size: cover;
   background-position: center center;
+}
+
+.article-image_circle {
+    width: $image-diameter;
+    height: $image-diameter;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
 }
 
 .article-meta {
@@ -125,5 +146,3 @@ $meta-color: #bbb;
   font-size: $meta-font-size;
   margin-top: $meta-margin-top;
 }
-
-

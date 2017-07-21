@@ -4,14 +4,19 @@ import ReactDOM from 'react-dom';
 import ArticleFeed from './article_feed';
 
 var defaultConfig = {
-  sites: 'share.staging.america.gov', 
+  sites: '', 
   size: '3', 
   types: 'post', 
   langs: 'en-US',
   tags: '',
   categories: '',
-  uiDirection: 'horizontal',
-  uiStyle: ''
+  ui: {
+    direction: 'row',               // row or column
+    layout: 'default',              // default or blog
+    imageShape: 'rectangle',        // rectangle or circle
+    imageBorderWidth: 0,             
+    imageBorderColor: 'transparent'    
+  }
 };
 
 // @todo add documentation
@@ -34,8 +39,7 @@ export const widgets =  {
               types={ config.types || defaultConfig.types }
               tags={ config.tags || defaultConfig.tags }
               categories={ config.categories || defaultConfig.categories }
-              uiDirection={ config.uiDirection || defaultConfig.uiDirection }
-              uiStyle={ config.uiStyle || defaultConfig.uiStyle }
+              ui={ config.ui || defaultConfig.ui }
             />, document.querySelector( config.selector )
           );
         }

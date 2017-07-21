@@ -11,24 +11,11 @@ class List extends Component {
 
     const config = this.props.config;
 
-    const STYLES = {
-      default: 'default',
-      blog: 'blog'
-    };
-
-    const DIRECTION = {
-      horizontal: 'row',
-      vertical: 'column'
-    };
-
-    let style = STYLES[config.uiStyle] || 'default',
-        direction = DIRECTION[config.uiDirection] || 'horizontal';
-
-    switch ( style ) {
+    switch ( config.ui.layout ) {
       case 'blog':
-        return <BlogList articles={ articles } />
+        return <BlogList articles={ articles } ui={ config.ui } />
       default:
-        return <DefaultList articles={ articles } direction={ direction } />
+        return <DefaultList articles={ articles } ui={ config.ui } />
     }
   }
 

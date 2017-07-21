@@ -7,6 +7,7 @@ const BlogList= ( props ) => {
       <BlogListItem 
         key={ article._id } 
         article={ article }
+         ui={ props.ui }
       /> 
     );
   }
