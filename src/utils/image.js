@@ -12,9 +12,3 @@ export const getImage = ( article  ) => {
       }
   return image;
 }
-
-export const getBackgroundImage = ( article ) => {
-    return {
-      backgroundImage: `url('${ getImage(article) }')`
-    }
-}

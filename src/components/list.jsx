@@ -10,7 +10,7 @@ class List extends Component {
   renderList( articles ) {
 
     const config = this.props.config;
-
+  
     switch ( config.ui.layout ) {
       case 'blog':
         return <BlogList articles={ articles } ui={ config.ui } />

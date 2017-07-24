@@ -36,7 +36,24 @@
            clearInterval(int);
 
           CDP.widgets.ArticleFeed.new({
-            selector: '#feed'
+            selector: '#feed',
+            sites: '', 
+            size: '3', 
+            types: 'post', 
+            langs: 'en-US',
+            tags: '',
+            categories: '',
+            ui: {
+              layout: 'default',
+              direction: 'row',
+              image: {
+                shape: 'rectangle',
+                width: '220px',
+                borderWidth: '10px',             
+                borderColor: '#192856',
+                borderStyle: 'solid'
+              }
+            }
           }).render();
         }
       }

@@ -17,7 +17,6 @@ $meta-margin-top: .2em;
 $meta-color: #bbb;
 
 $align: center;
-$image-diameter: 220px;
 
 .article-header > a {
   text-decoration:  none;
@@ -66,7 +65,7 @@ $image-diameter: 220px;
     }
 
     @media (min-width: $desktop) { 
-      flex-grow: 0;
+      flex-grow: 1;
       margin: .8em;
       width: 20em;       // 320px -> 20*16 
     }
@@ -126,15 +125,12 @@ $image-diameter: 220px;
   overflow: hidden;
   width: 100%;
   display: block;
-  min-height: 220px;
   background-repeat: none;
   background-size: cover;
   background-position: center center;
 }
 
 .article-image_circle {
-    width: $image-diameter;
-    height: $image-diameter;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
