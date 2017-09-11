@@ -26,7 +26,7 @@ export const queryBuilder = ( params ) => {
   let body = new bodybuilder();
   let qry = [];
 
-  if ( params.sites ) {
+  if ( params.sites ) { // add keyword to search
      qry.push( ...appendQry(params.sites, 'site') );
   }
 
@@ -52,6 +52,7 @@ export const queryBuilder = ( params ) => {
   
   let size = ( params.size && Number.isInteger(+params.size) ) ?  params.size : 3;
   body.size( size ); 
+  body.sort( 'published', 'desc' )
 
   return body.build();
 };

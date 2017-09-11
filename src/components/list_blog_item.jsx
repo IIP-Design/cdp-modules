@@ -20,13 +20,17 @@ const BlogListItem = ( props ) => {
     return wrapperStyle;
   }
 
+  const articleStyle = {
+    borderBottom: props.ui.divider
+  }
+
   const imageStyle = {
     backgroundImage: `url('${ getImage(article) }')`,
     minHeight:  props.ui.image.width
   }
 
   return (
-    <article className="article-item article-blog">
+    <article className="article-item article-blog" style={ articleStyle }>
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
           <a rel="noopener noreferrer" target="_blank" href={ article.link }>

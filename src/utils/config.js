@@ -9,6 +9,7 @@ const defaultImage =  {
 const defaultUI = {
   direction: 'row',               // row or column
   layout: 'default',              // default or blog 
+  divider: 'transparent',         // border style
   image: defaultImage
 }
 
@@ -53,6 +54,7 @@ export const getUIConfig = ( config ) => {
     const ui = {
       layout: config.ui.layout || 'default',
       direction: config.ui.direction || 'row',
+      divider: config.ui.divider || 'transparent',
       image: getImageUI( config.ui.image )
     }
     return ui;
