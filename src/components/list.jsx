@@ -13,9 +13,9 @@ class List extends Component {
   
     switch ( config.ui.layout ) {
       case 'blog':
-        return <BlogList articles={ articles } ui={ config.ui } />
+        return <BlogList articles={ articles } ui={ config.ui } meta={ config.meta } />
       default:
-        return <DefaultList articles={ articles } ui={ config.ui } />
+        return <DefaultList articles={ articles } ui={ config.ui } meta={ config.meta } />
     }
   }
 

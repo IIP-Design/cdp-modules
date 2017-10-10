@@ -29,8 +29,18 @@ const BlogListItem = ( props ) => {
     minHeight:  props.ui.image.width
   }
 
+  const getTitle = () => {
+    if( !article.link ) {
+      return article.title;
+    } else {
+      return ( 
+      <a rel="noopener noreferrer" target="_blank" className="article-title_link" href={article.link}> { article.title }</a>
+      );
+    }
+  }
+
   return (
-    <article className="article-item article-blog" style={ articleStyle }>
+    <li className="article-item article-blog" style={ articleStyle } data-id={ article.id }>
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
           <a rel="noopener noreferrer" target="_blank" href={ article.link }>
@@ -39,13 +49,11 @@ const BlogListItem = ( props ) => {
         </div>
       </div>
       <div className="article-content">
-        <header className="article-header">
-          <a rel="noopener noreferrer" target="_blank" href={ article.link }>{ article.title }</a>
-        </header>
+        <h3 className="article-title">{ getTitle() }</h3>
         { article.excerpt }
         <div className="article-meta">{ article.author.name } | { moment(article.published).format('MMMM Do YYYY') } </div>
       </div>
-    </article>
+    </li>
   );
 };
 

@@ -10,5 +10,7 @@ export const getImage = ( article  ) => {
       } else {
           image = placeholderImage;
       }
+
+    
   return image;
 }

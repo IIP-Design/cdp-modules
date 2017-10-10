@@ -21,10 +21,12 @@ export const widgets =  {
             <ArticleFeed 
               sites={ config.sites || defaultConfig.sites }
               size={ config.size || defaultConfig.size }
+              ids={ config.ids || defaultConfig.ids }
               langs={ config.langs || defaultConfig.langs }
               types={ config.types || defaultConfig.types }
               tags={ config.tags || defaultConfig.tags }
               categories={ config.categories || defaultConfig.categories }
+              meta={ config.meta || defaultConfig.meta }
               ui={ getUIConfig(config) }
             />, document.querySelector( config.selector )
           );

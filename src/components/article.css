@@ -1,13 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin");
-.article-header > a {
-  text-decoration: none;
-  color: #192856;
-  font-size: 1.3em;
-  font-weight: 700;
-  line-height: 1.5; }
-  .article-header > a:hover {
-    text-decoration: underline; }
-
 .article-group {
   margin: 0px;
   padding: 0px;
@@ -24,12 +15,12 @@
   flex-flow: row wrap;
   align-items: flex-start;
   justify-content: center; }
-  .article-group_row article {
+  .article-group_row li {
     flex-grow: 1;
     width: 100%;
     margin: 0; }
     @media (min-width: 735px) {
-      .article-group_row article {
+      .article-group_row li {
         flex-grow: 0;
         flex-basis: 22em;
         margin: .5em; } }
@@ -37,7 +28,7 @@
 .article-group_column {
   display: flex;
   flex-flow: column wrap; }
-  .article-group_column article {
+  .article-group_column li {
     flex: 1; }
 
 .article-item {
@@ -57,6 +48,15 @@
 .article-blog .article-content {
   flex-basis: 22em;
   flex-grow: 5; }
+
+.article-title > a {
+  text-decoration: none;
+  color: #192856;
+  font-size: 1.3em;
+  font-weight: 700;
+  line-height: 1.5; }
+  .article-title > a:hover {
+    text-decoration: underline; }
 
 .article-content p {
   margin-top: .7em; }

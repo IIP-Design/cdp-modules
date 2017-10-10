@@ -39,11 +39,13 @@ const getImageBorderColor = ( imageConfig ) => {
 export const getDefaultConfig = () => {
   return {
     sites: '', 
+    ids: '',
     size: '3', 
-    types: 'post', 
-    langs: 'en-US',
+    types: '', 
+    langs: '',
     tags: '',
-    categories: ''
+    categories: '',
+    meta: ''
   }
 };
 

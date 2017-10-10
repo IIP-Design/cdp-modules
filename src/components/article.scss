@@ -18,18 +18,16 @@ $meta-color: #bbb;
 
 $align: center;
 
-.article-header > a {
-  text-decoration:  none;
-  color: $header-color-link;
-  font-size: $header-font-size;
-  font-weight: $header-font-weight;
-  line-height: 1.5;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
+//844 went to row
+// This is the shorthand for flex-grow, flex-shrink and flex-basis combined. 
+// The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto.
+// .item {
+//   flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+// }
+// This is a shorthand flex-direction and flex-wrap properties, 
+//which together define the flex container's main and cross axes. Default is row nowrap.
+//flex-flow: <‘flex-direction’> || <‘flex-wrap’>
+// control article item and image within
 .article-group {
   margin: 0px;
   padding: 0px;
@@ -50,7 +48,7 @@ $align: center;
   align-items: flex-start;
   justify-content: $align;
 
-  article {
+  li {
     flex-grow: 1;
     width: 100%;
     margin: 0; 
@@ -60,16 +58,6 @@ $align: center;
       flex-basis: 22em;        // 352px -> 22*16 
       margin: .5em;
     }
-
-    // @media (min-width: $laptop) { 
-    //   flex-basis: 22em;        // 400px -> 25*16 
-    // }
-
-    // @media (min-width: $desktop) { 
-    //   flex-grow: 1;
-    //   margin: .8em;
-    //   flex-basis: 18em;       // 320px -> 20*16 
-    // }
   }
 }
 
@@ -77,7 +65,7 @@ $align: center;
   display: flex; 
   flex-flow: column wrap;
 
-  article {
+  li {
     flex: 1; 
   }
 }
@@ -104,6 +92,18 @@ $align: center;
   .article-content {
     flex-basis: 22em;
     flex-grow: 5;
+  }
+}
+
+.article-title > a {
+  text-decoration:  none;
+  color: $header-color-link;
+  font-size: $header-font-size;
+  font-weight: $header-font-weight;
+  line-height: 1.5;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 

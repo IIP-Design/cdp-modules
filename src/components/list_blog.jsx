@@ -13,9 +13,9 @@ const BlogList= ( props ) => {
   }
 
   return (  
-    <section className={ `article-group` }>
+    <ul className={ `article-group` }>
       { props.articles.map( renderArticle ) }
-    </section>
+    </ul>
   )
 }
 

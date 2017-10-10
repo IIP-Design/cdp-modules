@@ -15,9 +15,9 @@ const DefaultList= ( props ) => {
   }
 
   return (  
-    <section className={ `article-group article-group_${props.ui.direction}` }>
+    <ul className={ `article-group article-group_${props.ui.direction}` }>
       { props.articles.map( renderArticle ) }
-    </section>
+    </ul>
   )
 }
 
