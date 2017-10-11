@@ -25,6 +25,10 @@ const DefaultListItem = ( props ) => {
     minHeight:  props.ui.image.width
   }
 
+  const contentStyle = {
+    textAlign: props.ui.textAlignment
+  }
+
   return (
     <li className="article-item" data-id={ article.id }>  
       <div className="article-media">

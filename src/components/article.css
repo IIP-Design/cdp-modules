@@ -9,7 +9,7 @@
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.4285em;
-  color: #777;
+  color: #1D1D1D;
   list-style: none; }
   .article-item-group.article-style-blog {
     flex-flow: column; }
@@ -69,7 +69,7 @@
   margin: 0 auto; }
 
 .article-meta {
-  color: #aaa;
+  color: #7C7C7C;
   font-size: 0.9em;
   margin-top: 0.2em; }
   .article-meta span {
