@@ -8,14 +8,11 @@ class List extends Component {
 
   // @todo use HOC instead of switch
   renderList( articles ) {
-
-    const config = this.props.config;
-  
-    switch ( config.ui.layout ) {
+    switch ( this.props.config.ui.layout ) {
       case 'blog':
-        return <BlogList articles={ articles } ui={ config.ui } meta={ config.meta } />
+        return <BlogList articles={ articles } config={ this.props.config }  />
       default:
-        return <DefaultList articles={ articles } ui={ config.ui } meta={ config.meta } />
+        return <DefaultList articles={ articles } config={ this.props.config } />
     }
   }
 

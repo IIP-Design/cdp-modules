@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import * as ui from '../utils/ui';
 import { getImage } from  '../utils/image';
 import './article.css';
 
@@ -11,12 +11,11 @@ const BlogListItem = ( props ) => {
     let image = props.ui.image;
     
     let wrapperStyle = {
-       border: `${image.borderWidth} ${image.borderStyle} ${image.borderColor}`
+       border: `${image.borderWidth} ${image.borderStyle} ${image.borderColor}`,
+       width:  props.ui.image.width,
+       height: props.ui.image.width
     }
-    if( shape === 'circle' ) {
-      wrapperStyle['width'] = props.ui.image.width;
-      wrapperStyle['height'] = props.ui.image.width;
-    }
+
     return wrapperStyle;
   }
 
@@ -29,18 +28,8 @@ const BlogListItem = ( props ) => {
     minHeight:  props.ui.image.width
   }
 
-  const getTitle = () => {
-    if( !article.link ) {
-      return article.title;
-    } else {
-      return ( 
-      <a rel="noopener noreferrer" target="_blank" className="article-title_link" href={article.link}> { article.title }</a>
-      );
-    }
-  }
-
   return (
-    <li className="article-item article-blog" style={ articleStyle } data-id={ article.id }>
+    <li className="article-item" style={ articleStyle } data-id={ article.id }>
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
           <a rel="noopener noreferrer" target="_blank" href={ article.link }>
@@ -49,10 +38,11 @@ const BlogListItem = ( props ) => {
         </div>
       </div>
       <div className="article-content">
-        <h3 className="article-title">{ getTitle() }</h3>
-        { article.excerpt }
-        <div className="article-meta">{ article.author.name } | { moment(article.published).format('MMMM Do YYYY') } </div>
+        <h3 className="article-title">{ ui.getTitle(article) }</h3>
+        <div className="article-meta">{ ui.getMeta(article, props.meta) }</div>
+        <p>{ article.excerpt }</p>
       </div>
+      <div>{ ui.getTags(article, props.meta) }</div>
     </li>
   );
 };

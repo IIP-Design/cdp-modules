@@ -4,7 +4,7 @@ $tablet:   735px;
 $laptop:   900px; 
 $desktop:  1100px; 
 
-$font-color: #1D1D1D; //#555;
+$font-color: #777; //#555;
 $font-size: 1em;
 $font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
@@ -14,94 +14,72 @@ $header-color-link: #192856; //#4183C4;
 
 $meta-font-size:  .9em;
 $meta-margin-top: .2em;
-$meta-color: #bbb;
+$meta-color: #aaa;
 
-$align: center;
+$tag-font-size:  .8em;
+$tag-color: #aaa;
 
-//844 went to row
-// This is the shorthand for flex-grow, flex-shrink and flex-basis combined. 
-// The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto.
-// .item {
-//   flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
-// }
-// This is a shorthand flex-direction and flex-wrap properties, 
-//which together define the flex container's main and cross axes. Default is row nowrap.
-//flex-flow: <‘flex-direction’> || <‘flex-wrap’>
-// control article item and image within
-.article-group {
-  margin: 0px;
+$gutter: 1.5em;
+
+.article-item-group {  
+  display: flex;
+  flex-flow: row; 
+  flex-wrap: wrap;
+
+  margin: 0 0 -$gutter 0;
   padding: 0px;
   overflow-x: hidden;
   font-family: $font-family;
   font-size: $font-size;
   line-height: 1.4285em;
   color: $font-color;
+  list-style: none;
+
+  &.article-style-blog {
+    flex-flow: column; 
+  }
 
   p {
     font-size: inherit;
   }
 }
 
-.article-group_row {
-  display: flex; 
-  flex-flow: row wrap;
-  align-items: flex-start;
-  justify-content: $align;
-
-  li {
-    flex-grow: 1;
-    width: 100%;
-    margin: 0; 
-    
-    @media (min-width: $tablet) { 
-      flex-grow: 0;
-      flex-basis: 22em;        // 352px -> 22*16 
-      margin: .5em;
-    }
-  }
-}
-
-.article-group_column {
-  display: flex; 
-  flex-flow: column wrap;
-
-  li {
-    flex: 1; 
-  }
-}
-
 .article-item {
-  display: flex;
-  flex-flow: row wrap;
-  margin-top: 1em;
+  flex: 0 0 100%; 
+  padding-left: $gutter;
+  padding-bottom: 1em;
+
+  @media (min-width: 48em) {
+    flex: 0 0 calc(50% - #{$gutter});  
+  }
+
+  @media (min-width: 60em) {
+    flex: 0 0 calc(33.3333% - #{$gutter});  
+  }
 }
 
-.article-blog {
+.article-style-blog {
   .article-media {
-    flex-basis: 15em;
-    flex-grow: 1;
-    @media (min-width: $tablet) { 
-      margin-right: 1em;
-    }
-
-    .article-image_rectangle {
-      margin-right: .5em;
-    }
+   float: left;
+   margin-right:  $gutter;
   }
 
   .article-content {
-    flex-basis: 22em;
-    flex-grow: 5;
+    overflow:hidden;
   }
 }
 
-.article-title > a {
+.article-title  {
   text-decoration:  none;
+  margin: .5em 0 .3em 0;
   color: $header-color-link;
   font-size: $header-font-size;
   font-weight: $header-font-weight;
-  line-height: 1.5;
+}
 
+.article-title_link {
+  text-decoration:  none;
+  color: $header-color-link;
   &:hover {
     text-decoration: underline;
   }
@@ -114,7 +92,6 @@ $align: center;
 }
 
 .article-media {
-  width: 100%;
   padding-bottom: .5em;
 }
 
@@ -139,4 +116,17 @@ $align: center;
   color: $meta-color;
   font-size: $meta-font-size;
   margin-top: $meta-margin-top;
+
+  span {
+    color: $header-color-link;
+    font-weight: bold;
+  }
+}
+
+.article-tag {
+  display: inline-block;
+  margin-right: 1em;
+  font-size: $tag-font-size;
+  font-style: italic;
+  color: $tag-color;
 }

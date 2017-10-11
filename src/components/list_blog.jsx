@@ -7,13 +7,15 @@ const BlogList= ( props ) => {
       <BlogListItem 
         key={ article._id } 
         article={ article }
-        ui={ props.ui }
+        tags={ props.config.tags }
+        meta={ props.config.meta }
+        ui={ props.config.ui }
       /> 
     );
   }
-
+ 
   return (  
-    <ul className={ `article-group` }>
+    <ul className="article-item-group article-style-blog">
       { props.articles.map( renderArticle ) }
     </ul>
   )

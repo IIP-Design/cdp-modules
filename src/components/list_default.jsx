@@ -9,13 +9,15 @@ const DefaultList= ( props ) => {
       <DefaultListItem 
         key={ article._id } 
         article={ article }
-        ui={ props.ui }
+        tags={ props.config.tags }
+        meta={ props.config.meta }
+        ui={ props.config.ui }
       /> 
     );
   }
 
   return (  
-    <ul className={ `article-group article-group_${props.ui.direction}` }>
+    <ul className="article-item-group">
       { props.articles.map( renderArticle ) }
     </ul>
   )
