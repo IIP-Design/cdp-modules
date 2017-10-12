@@ -19,13 +19,14 @@ $meta-margin-top: .2em;
 $tag-font-size:  .8em;
 // $tag-color: #aaa;
 
-$gutter: 1.5em;
 
 .article-item-group {  
   display: flex;
   flex-flow: row; 
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  //justify-content: space-evenly;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
 
   margin: 0;
   padding: 0;
@@ -39,30 +40,32 @@ $gutter: 1.5em;
   &.article-style-blog {
     flex-flow: column; 
   }
-
-  p {
-    font-size: inherit;
-  }
 }
 
 .article-item {
   flex: 1 0 100%; 
-  padding-left: $gutter;
-  padding-bottom: 1em;
+  box-sizing: border-box;
+  padding: 0 0.5rem 1em;
 
   @media (min-width: 48em) {
-    flex: 0 0 calc(50% - #{$gutter});  
+    flex: 0 0 50%; 
   }
 
   @media (min-width: 60em) {
-    flex: 1 0 calc(33.3333% - #{$gutter});  
+    flex: 1 0 33.3333%;
   }
 }
 
 .article-style-blog {
   .article-media {
-   float: left;
-   margin-right:  $gutter;
+    float: none;
+    margin-right: 0;
+
+    @media (min-width: 48em) {
+      float: left; 
+      margin-right: 1.5em;
+      min-width: 33.3333%;
+    }
   }
 
   .article-content {

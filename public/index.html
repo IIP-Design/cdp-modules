@@ -29,6 +29,8 @@
     <div id="feed1">LOADING Component...</div>
     <div id="feed2">LOADING Component...</div>
     <div id="feed3">LOADING Component...</div>
+    <div id="feed4">LOADING Component...</div>
+    <div id="feed5">LOADING Component...</div>
 
     <script>
       (function() {
@@ -112,7 +114,7 @@
               selector: '#feed3',
               sites: 'yali.dev.america.gov,courses.staging.america.gov', 
               ids: ["4168","6297","13245"],
-              size: '3', 
+              size: '1', 
               types: '', 
               langs: '',
               tags: '',
@@ -125,6 +127,76 @@
                 textAlignment: 'center',
                 image: {
                   shape: 'rectangle',
+                  width: '',
+                  borderWidth: '',             
+                  borderColor: '#192856',
+                  borderStyle: 'solid'
+                }
+              }
+            }).render();
+          }
+        }
+      })();
+
+      (function() {
+        var int = setInterval(loadWidget, 1000);
+
+        function loadWidget() {
+          if( CDP ) {
+            clearInterval(int);
+
+            CDP.widgets.ArticleFeed.new({
+              selector: '#feed4',
+              sites: 'yali.dev.america.gov,courses.staging.america.gov', 
+              ids: ["4168","6297","13245"],
+              size: '3', 
+              types: '', 
+              langs: '',
+              tags: '',
+              categories: '',
+              meta: ['tags', 'author', 'date'],
+              ui: {
+                layout: '',
+                openLinkInNewWin: "no",
+                direction: 'row',
+                textAlignment: 'center',
+                image: {
+                  shape: 'circle',
+                  width: '',
+                  borderWidth: '',             
+                  borderColor: '#192856',
+                  borderStyle: 'solid'
+                }
+              }
+            }).render();
+          }
+        }
+      })();
+
+      (function() {
+        var int = setInterval(loadWidget, 1000);
+
+        function loadWidget() {
+          if( CDP ) {
+            clearInterval(int);
+
+            CDP.widgets.ArticleFeed.new({
+              selector: '#feed5',
+              sites: 'yali.dev.america.gov,courses.staging.america.gov', 
+              ids: ["4168","6297","13245"],
+              size: '1', 
+              types: '', 
+              langs: '',
+              tags: '',
+              categories: '',
+              meta: ['tags', 'author', 'date'],
+              ui: {
+                layout: 'blog',
+                openLinkInNewWin: "no",
+                direction: 'row',
+                textAlignment: 'center',
+                image: {
+                  shape: 'circle',
                   width: '',
                   borderWidth: '',             
                   borderColor: '#192856',

@@ -12,8 +12,11 @@ const BlogListItem = ( props ) => {
     
     let wrapperStyle = {
        border: `${image.borderWidth} ${image.borderStyle} ${image.borderColor}`,
-       width:  props.ui.image.width,
        height: props.ui.image.width
+    }
+
+    if ( shape === 'circle' ) {
+      wrapperStyle['width'] = props.ui.image.width;
     }
 
     return wrapperStyle;
