@@ -26,40 +26,115 @@
       You need to enable JavaScript to view this component.
     </noscript>
     
-    <div id="feed">LOADING Component...</div>
+    <div id="feed1">LOADING Component...</div>
+    <div id="feed2">LOADING Component...</div>
+    <div id="feed3">LOADING Component...</div>
 
     <script>
-      var int = setInterval(loadWidget, 1000);
+      (function() {
+        var int = setInterval(loadWidget, 1000);
 
-      function loadWidget() {
-        if( CDP ) {
-           clearInterval(int);
+        function loadWidget() {
+          if( CDP ) {
+            clearInterval(int);
 
-          CDP.widgets.ArticleFeed.new({
-            selector: '#feed',
-            sites: 'share.staging.america.gov', 
-            //ids: [13694,806,807],
-            size: '10', 
-            types: '', 
-            langs: '',
-            tags: '',
-            categories: '',
-            meta: ['tags', 'author', 'date'],
-            ui: {
-              layout: '',
-              direction: 'row',
-              textAlignment: '',
-              image: {
-                shape: 'rectangle',
-                width: '220px',
-                borderWidth: '',             
-                borderColor: '#192856',
-                borderStyle: 'solid'
+            CDP.widgets.ArticleFeed.new({
+              selector: '#feed1',
+              sites: 'yali.dev.america.gov,courses.staging.america.gov', 
+              //ids: ["4168","6297","13245"],
+              size: '3', 
+              types: '', 
+              langs: '',
+              tags: '',
+              categories: '',
+              meta: ['tags', 'author', 'date'],
+              ui: {
+                openLinkInNewWin: false,
+                layout: '',
+                direction: 'row',
+                textAlignment: 'center',
+                image: {
+                  shape: 'circle',
+                  width: '10',
+                  borderWidth: '',             
+                  borderColor: '#192856',
+                  borderStyle: 'solid'
+                }
               }
-            }
-          }).render();
+            }).render();
+          }
         }
-      }
+      })();
+
+      (function() {
+        var int = setInterval(loadWidget, 1000);
+
+        function loadWidget() {
+          if( CDP ) {
+            clearInterval(int);
+
+            CDP.widgets.ArticleFeed.new({
+              selector: '#feed2',
+              sites: 'yali.dev.america.gov,courses.staging.america.gov', 
+              ids: ["4168","6297","13245"],
+              size: '3', 
+              types: '', 
+              langs: '',
+              tags: '',
+              categories: '',
+              meta: ['tags', 'author', 'date'],
+              ui: {
+                layout: '',
+                direction: 'row',
+                textAlignment: 'center',
+                openLinkInNewWin: false,
+                image: {
+                  shape: 'rectangle',
+                  width: '',
+                  borderWidth: '',             
+                  borderColor: '#192856',
+                  borderStyle: 'solid'
+                }
+              }
+            }).render();
+          }
+        }
+      })();
+
+      (function() {
+        var int = setInterval(loadWidget, 1000);
+
+        function loadWidget() {
+          if( CDP ) {
+            clearInterval(int);
+
+            CDP.widgets.ArticleFeed.new({
+              selector: '#feed3',
+              sites: 'yali.dev.america.gov,courses.staging.america.gov', 
+              ids: ["4168","6297","13245"],
+              size: '3', 
+              types: '', 
+              langs: '',
+              tags: '',
+              categories: '',
+              meta: ['tags', 'author', 'date'],
+              ui: {
+                layout: 'blog',
+                openLinkInNewWin: "no",
+                direction: 'row',
+                textAlignment: 'center',
+                image: {
+                  shape: 'rectangle',
+                  width: '',
+                  borderWidth: '',             
+                  borderColor: '#192856',
+                  borderStyle: 'solid'
+                }
+              }
+            }).render();
+          }
+        }
+      })();
     </script> 
     <!--
       This HTML file is a template.

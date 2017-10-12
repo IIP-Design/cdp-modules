@@ -1,1 +1,0 @@
-export const FEED_RENDERED = 'feedRendered';

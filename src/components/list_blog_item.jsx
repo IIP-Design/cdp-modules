@@ -6,7 +6,7 @@ import './article.css';
 const BlogListItem = ( props ) => {
   const article = props.article._source;
   const imageWrapperCls = `article-image_${props.ui.image.shape}`;
-  
+
   const getImageWrapperStyle = ( shape = 'rectangle') => {
     let image = props.ui.image;
     
@@ -32,13 +32,13 @@ const BlogListItem = ( props ) => {
     <li className="article-item" style={ articleStyle } data-id={ article.id }>
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
-          <a rel="noopener noreferrer" target="_blank" href={ article.link }>
+          <a rel="noopener noreferrer" href={ article.link } target={ props.ui.openLinkInNewWin }>
             <span className="article-image" style={ imageStyle }></span>
           </a>
         </div>
       </div>
       <div className="article-content">
-        <h3 className="article-title">{ ui.getTitle(article) }</h3>
+        <h3 className="article-title">{ ui.getTitle(article, props.ui.openLinkInNewWin) }</h3>
         <div className="article-meta">{ ui.getMeta(article, props.meta) }</div>
         <p>{ article.excerpt }</p>
       </div>

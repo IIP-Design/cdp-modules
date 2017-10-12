@@ -14,10 +14,10 @@ $header-color-link: #192856; //#4183C4;
 
 $meta-font-size:  .9em;
 $meta-margin-top: .2em;
-$meta-color: #7C7C7C; //#aaa;
+// $meta-color: #7C7C7C; //#aaa;
 
 $tag-font-size:  .8em;
-$tag-color: #aaa;
+// $tag-color: #aaa;
 
 $gutter: 1.5em;
 
@@ -25,9 +25,10 @@ $gutter: 1.5em;
   display: flex;
   flex-flow: row; 
   flex-wrap: wrap;
+  justify-content: space-evenly;
 
-  margin: 0 0 -$gutter 0;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
   font-family: $font-family;
   font-size: $font-size;
@@ -45,7 +46,7 @@ $gutter: 1.5em;
 }
 
 .article-item {
-  flex: 0 0 100%; 
+  flex: 1 0 100%; 
   padding-left: $gutter;
   padding-bottom: 1em;
 
@@ -54,7 +55,7 @@ $gutter: 1.5em;
   }
 
   @media (min-width: 60em) {
-    flex: 0 0 calc(33.3333% - #{$gutter});  
+    flex: 1 0 calc(33.3333% - #{$gutter});  
   }
 }
 
@@ -113,7 +114,7 @@ $gutter: 1.5em;
 }
 
 .article-meta {
-  color: $meta-color;
+  color: lighten( $header-color-link, 10% );
   font-size: $meta-font-size;
   margin-top: $meta-margin-top;
 
@@ -128,5 +129,5 @@ $gutter: 1.5em;
   margin-right: 1em;
   font-size: $tag-font-size;
   font-style: italic;
-  color: $tag-color;
+  color: lighten( $header-color-link, 10% );
 }

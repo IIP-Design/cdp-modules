@@ -3,7 +3,6 @@ import DefaultList from './list_default';
 import BlogList from './list_blog';
 import ListLoader from './list_loader';
 import { queryBuilder } from '../utils/query';
-import * as events from '../utils/events'
 
 class List extends Component {
 
@@ -21,12 +20,6 @@ class List extends Component {
     this.props.fetchArticles({
       body: queryBuilder( this.props.config )
     });
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount')
-    let  event = new Event( events.FEED_RENDERED );
-    dispatchEvent(event);
   }
 
   render () {

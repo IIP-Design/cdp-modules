@@ -14,14 +14,19 @@ const defaultUI = {
   image: defaultImage
 }
 
+const formatWidth = ( width ) => {
+  if( !width ) return;
+  return ( ~width.indexOf( 'px') ? width : width + 'px' )
+}
+
 const getImageUI = ( imageConfig ) => {
   if( !imageConfig ) {
     return defaultImage;
   } else {
     const image = {
       shape: imageConfig.shape || 'rectangle',          
-      width: imageConfig.width || '220px',
-      borderWidth: imageConfig.borderWidth || 0,             
+      width: formatWidth(imageConfig.width) || '220px',
+      borderWidth: formatWidth(imageConfig.borderWidth) || 0,             
       borderColor: getImageBorderColor( imageConfig ),
       borderStyle: imageConfig.borderStyle || 'solid'
     }
@@ -56,6 +61,7 @@ export const getUIConfig = ( config ) => {
   } else {
     const ui = {
       layout: config.ui.layout || 'default',
+      openLinkInNewWin: (config.ui.openLinkInNewWin === "no" ) ? "_self" : "_blank",
       direction: config.ui.direction || 'row',
       textAlignment: config.ui.textAlignment || 'left',
       divider: config.ui.divider || 'transparent',
