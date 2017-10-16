@@ -27,7 +27,7 @@ const BlogListItem = ( props ) => {
   }
 
   const imageStyle = {
-    backgroundImage: `url('${ getImage(article) }')`,
+    backgroundImage: `url('${ getImage(article, parseInt(props.ui.image.width, 10)) }')`,
     minHeight:  props.ui.image.width
   }
 
