@@ -72,8 +72,12 @@ export const queryBuilder = ( params ) => {
     }
   }
   
-  let size = ( params.size && Number.isInteger(+params.size) ) ?  params.size : 3;
-  body.size( size ); 
+  // do not set size when querying for specific ids
+  if( !params.ids ) {
+    let size = ( params.size && Number.isInteger(+params.size) ) ?  params.size : 3;
+    body.size( size ); 
+  }
+ 
   body.sort( 'published', 'desc' )
 
   return body.build();
