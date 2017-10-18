@@ -8,6 +8,9 @@ class List extends Component {
 
   // @todo use HOC instead of switch
   renderList( articles ) {
+    if( !articles.length ) {
+      return <div>No results founds</div>
+    }
     switch ( this.props.config.ui.layout ) {
       case 'blog':
         return <BlogList articles={ articles } config={ this.props.config }  />
