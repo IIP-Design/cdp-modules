@@ -1,13 +1,23 @@
 import bodybuilder from 'bodybuilder';
 
-const cleanQry = ( str ) => {
-  return str.split(',').map( item => item.trim() );
-}
-
 const fetchNumericValues = ( arr ) => {
   return arr.filter( (item) => {
     return +item;
   });
+}
+
+const hasValue = ( value ) => {
+  if( Array.isArray(value ) ) {
+    // remove empty values
+    let arr = value.filter( v => v !== '' )
+    return arr.length > 0;
+  } else {
+    return !!value;
+  }
+}
+
+const cleanQry = ( str ) => {
+  return str.split(',').map( item => item.trim() );
 }
 
 const appendQry = ( str, field ) => {
@@ -30,8 +40,8 @@ const reduceQry = ( qry ) => {
 
 export const queryBuilder = ( params ) => {
   let body = new bodybuilder();
- 
-  if ( params.ids ) {
+
+  if ( hasValue(params.ids) ) {
     // ids MUST match and should be from one of the sites
     body.filter( 'terms', 'id', fetchNumericValues(params.ids) )
         .orFilter('terms', 'site', cleanQry(params.sites) )
