@@ -25,7 +25,7 @@
       flex: 0 0 50%; } }
   @media (min-width: 60em) {
     .article-item {
-      flex: 1 0 33.3333%; } }
+      flex: 0 0 33.3333%; } }
 
 .article-style-blog .article-media {
   float: none;

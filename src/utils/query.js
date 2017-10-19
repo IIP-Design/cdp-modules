@@ -9,7 +9,7 @@ const fetchNumericValues = ( arr ) => {
 const hasValue = ( value ) => {
   if( Array.isArray(value ) ) {
     // remove empty values
-    let arr = value.filter( v => v !== '' )
+    let arr = value.filter( v => v.trim() !== '' ) 
     return arr.length > 0;
   } else {
     return !!value;
@@ -83,7 +83,7 @@ export const queryBuilder = ( params ) => {
   }
   
   // do not set size when querying for specific ids
-  if( !params.ids ) {
+  if( !hasValue(params.ids)  ) {  
     let size = ( params.size && Number.isInteger(+params.size) ) ?  params.size : 3;
     body.size( size ); 
   }
