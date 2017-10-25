@@ -8,6 +8,7 @@ class List extends Component {
 
   // @todo use HOC instead of switch
   renderList( articles ) {
+    
     if( !articles.length ) {
       return <div>No results founds</div>
     }
@@ -19,7 +20,17 @@ class List extends Component {
     }
   }
 
-  componentWillMount() {
+  // Dispatch event to let outside world know that DOM elements have been added
+  componentDidUpdate(prevProps, prevState) {
+    if( !this.props.articleList.loading ) {
+      let config = prevProps.config;
+      let selector = ( config && config.selector ) ? config.selector : null;
+      var event = new CustomEvent('onReadyFeed', { detail: selector });
+      dispatchEvent( event );
+    }
+  }
+
+  componentDidMount() {
     this.props.fetchArticles({
       body: queryBuilder( this.props.config )
     });
@@ -34,7 +45,7 @@ class List extends Component {
       return <div>Error: { error }</div>
     }
     
-    // @todo Deal with no results, empty array + rtl articles 
+    // @todo Deal with empty array + rtl articles 
     return (  
       <div>
          { this.renderList( articles ) }

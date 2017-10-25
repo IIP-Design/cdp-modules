@@ -19,7 +19,9 @@ export const widgets =  {
 
           ReactDOM.render (
             <ArticleFeed 
+              selector={ config.selector }
               sites={ config.sites || defaultConfig.sites }
+              from={ config.from || defaultConfig.from }
               size={ config.size || defaultConfig.size }
               ids={ config.ids || defaultConfig.ids }
               langs={ config.langs || defaultConfig.langs }

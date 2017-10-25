@@ -46,6 +46,7 @@ export const getDefaultConfig = () => {
   return {
     sites: '', 
     ids: '',
+    from: 0,
     size: '3', 
     types: '', 
     langs: '',

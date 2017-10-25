@@ -82,9 +82,11 @@ export const queryBuilder = ( params ) => {
     }
   }
   
-  // do not set size when querying for specific ids
+  // do not set frrom/size when querying for specific ids
   if( !hasValue(params.ids)  ) {  
     let size = ( params.size && Number.isInteger(+params.size) ) ?  params.size : 3;
+    let from = ( params.from && Number.isInteger(+params.from) ) ?  params.from : 0;
+    body.from( from ); 
     body.size( size ); 
   }
  

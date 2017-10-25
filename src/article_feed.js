@@ -9,11 +9,6 @@ import List from './containers/list_container';
 const createStoreWithMiddleware = applyMiddleware( ReduxPromise )( createStore );
 
 class ArticleFeed extends Component {
-  // @todo dispatch render event
-  // componentDidMount() {
-  //   let  event = new Event( 'load', { bubbles: true } );
-  //   dispatchEvent( event );
-  // }
 
   render() {
     return (
