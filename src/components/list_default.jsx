@@ -17,7 +17,7 @@ const DefaultList= ( props ) => {
   }
 
   return (  
-    <ul className="article-item-group">
+    <ul className="article-item-group" data-total={ props.total }>
       { props.articles.map( renderArticle ) }
     </ul>
   )

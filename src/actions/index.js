@@ -17,7 +17,7 @@ export function fetchArticlesSuccess( data ) {
   let articles = ( data.hits && data.hits.hits ) ?  data.hits.hits : [];
   return {
     type: FETCH_ARTICLES_SUCCESS,
-    payload: articles
+    payload: { articles, total: data.hits.total }
   };
 }
 

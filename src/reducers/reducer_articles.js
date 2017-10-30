@@ -5,6 +5,7 @@ import { FETCH_ARTICLES,
 const INITIAL_STATE = { 
   articleList: { 
     articles: [], 
+    total: 0,
     error:null, 
     loading: false 
   } 
@@ -28,7 +29,8 @@ export default function( state = INITIAL_STATE, action ) {
       return { 
         ...state, 
         articleList: { 
-          articles: action.payload, 
+          articles: action.payload.articles,
+          total:  action.payload.total,
           error: null, 
           loading: false
         }

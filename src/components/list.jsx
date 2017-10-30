@@ -7,16 +7,16 @@ import { queryBuilder } from '../utils/query';
 class List extends Component {
 
   // @todo use HOC instead of switch
-  renderList( articles ) {
+  renderList( articles, total ) {
     
     if( !articles.length ) {
-      return <div>No results founds</div>
+      return <div className='article-no-results'>No results founds</div>
     }
     switch ( this.props.config.ui.layout ) {
       case 'blog':
-        return <BlogList articles={ articles } config={ this.props.config }  />
+        return <BlogList articles={ articles } total={ total } config={ this.props.config }  />
       default:
-        return <DefaultList articles={ articles } config={ this.props.config } />
+        return <DefaultList articles={ articles } total={ total } config={ this.props.config } />
     }
   }
 
@@ -26,18 +26,19 @@ class List extends Component {
       let config = prevProps.config;
       let selector = ( config && config.selector ) ? config.selector : null;
       var event = new CustomEvent('onReadyFeed', { detail: selector });
+      console.log('LOG: dispatch event - onReadyFeed')
       dispatchEvent( event );
     }
   }
 
   componentDidMount() {
-    this.props.fetchArticles({
-      body: queryBuilder( this.props.config )
-    });
+    let query = this.props.config.query;
+    let body = ( query && Object.keys(query).length ) ? query : queryBuilder( this.props.config );
+    this.props.fetchArticles({ body });
   }
 
   render () {
-    const { articles, loading, error } = this.props.articleList;
+    const { articles, total, loading, error } = this.props.articleList;
 
     if( loading ) {
       return  <ListLoader />    
@@ -48,7 +49,7 @@ class List extends Component {
     // @todo Deal with empty array + rtl articles 
     return (  
       <div>
-         { this.renderList( articles ) }
+         { this.renderList( articles, total ) }
       </div>
     );
   }

@@ -15,7 +15,7 @@ const BlogList= ( props ) => {
   }
  
   return (  
-    <ul className="article-item-group article-style-blog">
+    <ul className="article-item-group article-style-blog" data-total={ props.total }>
       { props.articles.map( renderArticle ) }
     </ul>
   )
