@@ -5,6 +5,7 @@ import './article.css';
 
 const DefaultListItem = ( props ) => {
   const article = props.article._source;
+ 
   const imageWrapperCls = `article-image_${props.ui.image.shape}`;
 
   const getImageWrapperStyle = ( shape = 'rectangle' ) => {
@@ -31,7 +32,7 @@ const DefaultListItem = ( props ) => {
   // }
 
   return (
-    <li className="article-item" data-id={ article.id }>  
+    <li className="article-item" data-id={ article.id } data-type={  article.type }>  
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
           <a rel="noopener noreferrer" href={ article.link } target={ props.ui.openLinkInNewWin }>
