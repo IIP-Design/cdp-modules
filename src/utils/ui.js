@@ -11,12 +11,21 @@ export const getTitle = ( article, openLinkInNewWin ) => {
   }
 }
 
-export const getMeta = ( article, meta ) => {
-  let author = article.author.name;
-  let showAuthor = meta.includes( 'author' );
-  let showDate = meta.includes( 'date' );
-  let date = article.published;
-  let dateFormatted = moment( date ).format( 'MMMM Do YYYY' );
+export const getMeta = ( article, meta = [] ) => {
+  let author, date, dateFormatted;
+  let showAuthor, showDate;
+  
+  if ( article.author ) {
+    author = article.author.name;
+  }
+
+  if( article.published ) {
+    date = article.published;
+    dateFormatted = moment(date).format('MMMM Do YYYY');
+  }
+
+  showAuthor = meta.includes('author');
+  showDate = meta.includes('date');
   
   if( showAuthor && showDate ) {
     if( author && date ) {
