@@ -19,7 +19,7 @@
 .article-item {
   flex: 1 0 100%;
   box-sizing: border-box;
-  padding: 0 0.5rem 1rem; }
+  padding: 0 0.75rem 1rem; }
   @media (min-width: 48em) {
     .article-item {
       flex: 0 0 50%; } }

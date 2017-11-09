@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
 
-$tablet:   735px;  
-$laptop:   900px; 
-$desktop:  1100px; 
+$tablet:   735px;
+$laptop:   900px;
+$desktop:  1100px;
 
-$font-color: #777; 
+$font-color: #777;
 $font-size: 1rem;
 $font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 $title-font-weight: 700;
-$title-color-link: #3972AA; 
+$title-color-link: #3972AA;
 
 $meta-font-size:  .9rem;
 $meta-margin-top: .2rem;
@@ -19,11 +19,11 @@ $tag-font-size:  .8rem;
 $tag-color: #aaa;
 
 
-.article-item-group {  
+.article-item-group {
   display: flex;
-  flex-flow: row; 
+  flex-flow: row;
   flex-wrap: wrap;
-  
+
   margin-left: -0.5rem;
   margin-right: -0.5rem;
 
@@ -37,17 +37,17 @@ $tag-color: #aaa;
   list-style: none;
 
   &.article-style-blog {
-    flex-flow: column; 
+    flex-flow: column;
   }
 }
 
 .article-item {
-  flex: 1 0 100%; 
+  flex: 1 0 100%;
   box-sizing: border-box;
-  padding: 0 0.5rem 1rem;
+  padding: 0 0.75rem 1rem;
 
   @media (min-width: 48em) {
-    flex: 0 0 50%; 
+    flex: 0 0 50%;
   }
 
   @media (min-width: 60em) {
@@ -61,7 +61,7 @@ $tag-color: #aaa;
     margin-right: 0;
 
     @media (min-width: 48em) {
-      float: left; 
+      float: left;
       margin-right: 1.5rem;
       min-width: 33.3333%;
     }
