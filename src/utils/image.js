@@ -73,7 +73,7 @@ function getImageSize( sizes, minHeight ) {
   // now loop over to get shortest width
   a.sort( function(a, b) {
     return +a.width - +b.width;
-  } );
+  });
 
-  return a[0].url;
+  return ( a[0] && a[0].url ) ? a[0].url : null;
 }
