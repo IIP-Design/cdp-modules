@@ -10,7 +10,7 @@ class List extends Component {
   renderList( articles, total ) {
     
     if( !articles.length ) {
-      return <div className='article-no-results'>No results founds</div>
+      return <div className='article-no-results'>No results found</div>
     }
     switch ( this.props.config.ui.layout ) {
       case 'blog':
