@@ -13,8 +13,8 @@ let placeholderImages = {
 
 export const getImage = ( article, minHeight = 0 ) => {
   let image;
-  if ( article.featured_image && article.featured_image.sizes ) {
-    image = getImageSize( article.featured_image.sizes, minHeight );
+  if ( article.thumbnail ) {
+    image = getImageSize( article.thumbnail, minHeight );
   }  
   if( !image ) {
     image = getPlaceHolderImage( article );
@@ -45,10 +45,10 @@ export const getPlaceHolderImage = ( article ) => {
  * @param {object} article Elastic search document
  */
 export const checkForAdditionalContentType = ( article ) => {
-  if (article.taxonomies && article.taxonomies.content_type ) {
-    let type = article.taxonomies.content_type;
+  if (article.custom_taxonomies && article.custom_taxonomies.content_type ) {
+    let type = article.custom_taxonomies.content_type;
     if ( Array.isArray(type) && type.length && type[0].slug ) {
-      return placeholderImages[article.taxonomies.content_type[0].slug];
+      return placeholderImages[article.custom_taxonomies.content_type[0].slug];
     }
   }
   return placeholderImageArticle;
@@ -65,7 +65,7 @@ function getImageSize( sizes, minHeight ) {
   // loop over object props and get obj with height shortest height greater than minHeight
   for ( let size in sizes ) { 
     let s = sizes[size];
-    if ( s.height >= minHeight ) {
+    if ( s && s.height >= minHeight ) {
       a.push(s);
     }
   }

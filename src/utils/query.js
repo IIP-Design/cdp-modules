@@ -21,8 +21,14 @@ const cleanQry = ( str ) => {
 }
 
 const appendQry = ( str, field ) => {
-   let items = cleanQry( str );
-   return items.map( item => `${field}: ${item}` );
+  let items = cleanQry( str );
+  if ( typeof field === 'string' ) {
+    return items.map( item => `${field}: ${item}` );
+  }
+  return items.map( item => field.reduce( ( accum, subField ) => {
+    accum.push(`${subField}:${item}`);
+    return accum;
+  }, [] ).join( ' OR ' ) );
 }
  
 const reduceQry = ( qry ) => {
@@ -30,7 +36,7 @@ const reduceQry = ( qry ) => {
     if (index === (arr.length - 1)) {
       acc += value;
     } else {
-      acc += `${value} AND `;
+      acc += `(${value}) AND `;
     }
     return acc;
   }, '');
@@ -43,19 +49,19 @@ export const queryBuilder = ( params ) => {
 
   if ( hasValue(params.ids) ) {
     // ids MUST match and should be from one of the sites
-    body.filter( 'terms', 'id', fetchNumericValues(params.ids) )
+    body.filter( 'terms', 'post_id', fetchNumericValues(params.ids) )
         .orFilter('terms', 'site', cleanQry(params.sites) )
   } else {
 
     // sites is an OR query so use the 'orFilter' add filterMinimumShouldMatch to ensure
     // that the ids are coming from one of the sites
-    if ( params.sites ) { 
+    if ( params.sites ) {
       cleanQry(params.sites).forEach( (item) => {
         body.orFilter('term', 'site', item )
       });
 
       // becomes a MUST if there is only 1 site
-      body.filterMinimumShouldMatch(1)  
+      body.filterMinimumShouldMatch(1)
     }
 
     let qry = [];
@@ -69,7 +75,7 @@ export const queryBuilder = ( params ) => {
     }
 
     if ( params.tags ) {
-      qry.push( ...appendQry(params.tags, 'tags.name') );
+      qry.push( ...appendQry(params.tags, 'tags.keyword') );
     }
 
     if ( params.types ) {

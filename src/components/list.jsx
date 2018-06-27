@@ -25,8 +25,8 @@ class List extends Component {
     if( !this.props.articleList.loading ) {
       let config = prevProps.config;
       let selector = ( config && config.selector ) ? config.selector : null;
-      var event = new CustomEvent('onReadyFeed', { detail: selector });
-      console.log('LOG: dispatch event - onReadyFeed')
+      const event = new CustomEvent('onReadyFeed', { detail: selector });
+      //console.log('LOG: dispatch event - onReadyFeed');
       dispatchEvent( event );
     }
   }
