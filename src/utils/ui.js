@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import uuid from 'uuid';
 
 export const getTitle = ( article, openLinkInNewWin ) => {
   if( !article.link ) {
@@ -51,7 +52,7 @@ export const getTags = ( article, meta ) => {
   let showTags = meta.includes( 'tags' );
   if (showTags && article.tags && article.tags.length ) {
     return  (
-      article.tags.map( (tag) => <span className="article-tag" key={tag.id || tag}>{ tag.name || tag }</span> )
+      article.tags.map( (tag) => <span className="article-tag" key={tag.id || `${tag}-${uuid()}`}>{ tag.name || tag }</span> )
     )
   } else {
     return '';
