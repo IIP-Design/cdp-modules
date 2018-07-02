@@ -32,7 +32,7 @@ const BlogListItem = ( props ) => {
   }
 
   return (
-    <li className="article-item" style={ articleStyle } data-id={ article.id }>
+    <li className="article-item" style={ articleStyle } data-id={ article.post_id }>
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
           <a rel="noopener noreferrer" href={ article.link } target={ props.ui.openLinkInNewWin }>

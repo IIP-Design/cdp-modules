@@ -52,7 +52,8 @@
     "react-preloader-icon": "^0.1.0",
     "react-redux": "^5.0.5",
     "redux": "^3.7.1",
-    "redux-promise": "^0.5.3"
+    "redux-promise": "^0.5.3",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",

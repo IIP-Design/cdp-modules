@@ -32,7 +32,7 @@ const DefaultListItem = ( props ) => {
   // }
 
   return (
-    <li className="article-item" data-id={ article.id } data-type={  article.type }>  
+    <li className="article-item" data-id={ article.post_id } data-type={  article.type }>
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
           <a rel="noopener noreferrer" href={ article.link } target={ props.ui.openLinkInNewWin }>
