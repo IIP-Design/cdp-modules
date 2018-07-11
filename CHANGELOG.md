@@ -4,5 +4,5 @@
 
 **Features:**
 
-- Initiatlize widget with query body
+- Initialize widget with query body
 - Display content organized into cards
