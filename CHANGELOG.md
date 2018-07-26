@@ -13,7 +13,7 @@
 - Updated getTags to use tag as a string instead of an object with id and name properties (since we no longer use that schema).
 - Added uuid to the tag key when no tag.id is present.
 
-## Unreleased
+## Initial Release
 
 **Features:**
 
