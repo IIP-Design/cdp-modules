@@ -34,23 +34,23 @@ Determines what content is pulled
 | categories   | Categories associated with element |
 
 
-#### Display options 
-Deetermines how the content is displayed. All display options are added under a `ui` property in the configuration object.  See [usage](#usage) for an example.
+#### Display options
+Determines how the content is displayed. All display options are added under a `ui` property in the configuration object. See [usage](#usage) for an example.
 
 | Option | Description |
 | ------ | ----------- |
-| layout   | How should properties within component lay themeselvesout: default or blog style |
+| layout    | How should properties within component lay themeselves out: default or blog style |
 | direction | Direction of feed: row (default) or column |
-| image    | Thumbnail image that appears in the feed |
-| image -> shape   | Shape of image: rectangle (default) or circle |
+| image     | Thumbnail image that appears in the feed |
+| image -> shape | Shape of image: rectangle (default) or circle |
 | image -> width | Width of image |
-| image -> borderWidth  |  Width of image border |
-| image -> borderColor   | Color of image border |
-| image -> borderStyle  | Style of image border (standard html border styles)  |
+| image -> borderWidth |  Width of image border |
+| image -> borderColor | Color of image border |
+| image -> borderStyle | Style of image border (standard html border styles) |
 
 ## Usage
 
-Laod the css and js article feed files and then initialize the article feed widget. NOTE: as this widget is currently under development, the css and js file locations will move.
+Load the css and js article feed files and then initialize the article feed widget. NOTE: as this widget is currently under development, the css and js file locations will move.
 
 `https://s3.amazonaws.com/iip-design-stage-modules/modules/cdp-module-article-feed/cdp-module-article-feed.min.css`
 `https://s3.amazonaws.com/iip-design-stage-modules/modules/cdp-module-article-feed/cdp-module-article-feed.min.js`
@@ -58,9 +58,9 @@ Laod the css and js article feed files and then initialize the article feed widg
 ```js
   CDP.widgets.ArticleFeed.new({
     selector: '#articleFeed',
-    sites: 'share.america.gov', 
-    size: '3', 
-    types: 'post', 
+    sites: 'share.america.gov',
+    size: '3',
+    types: 'post',
     langs: 'en-US',
     tags: 'crowdfunding, startups',
     categories: 'business',  

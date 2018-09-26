@@ -31,12 +31,14 @@ const BlogListItem = ( props ) => {
     minHeight:  props.ui.image.width
   }
 
+  const imageAlt = ( ( article.thumbnail || {} ).alt || ' ' );
+
   return (
     <li className="article-item" style={ articleStyle } data-id={ article.post_id }>
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
           <a rel="noopener noreferrer" href={ article.link } target={ props.ui.openLinkInNewWin }>
-            <span className="article-image" style={ imageStyle }></span>
+            <span className="article-image" style={ imageStyle } role="img" aria-label={ imageAlt }></span>
           </a>
         </div>
       </div>

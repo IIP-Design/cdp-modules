@@ -13,8 +13,8 @@ let placeholderImages = {
 
 export const getImage = ( article, minHeight = 0 ) => {
   let image;
-  if ( article.thumbnail ) {
-    image = getImageSize( article.thumbnail, minHeight );
+  if ( article.thumbnail && article.thumbnail.sizes ) {
+    image = getImageSize( article.thumbnail.sizes, minHeight );
   }  
   if( !image ) {
     image = getPlaceHolderImage( article );

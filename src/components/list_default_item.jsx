@@ -27,6 +27,8 @@ const DefaultListItem = ( props ) => {
     minHeight:  props.ui.image.width
   }
 
+  const imageAlt = ( ( article.thumbnail || {} ).alt || ' ' );
+
   // const contentStyle = {
   //   textAlign: props.ui.textAlignment
   // }
@@ -36,7 +38,7 @@ const DefaultListItem = ( props ) => {
       <div className="article-media">
         <div className={ imageWrapperCls } style={ getImageWrapperStyle(props.ui.image.shape) }>
           <a rel="noopener noreferrer" href={ article.link } target={ props.ui.openLinkInNewWin }>
-            <span className="article-image" style={ imageStyle }></span>
+            <span className="article-image" style={ imageStyle } role="img" aria-label={ imageAlt }></span>
           </a>
         </div>
       </div>
