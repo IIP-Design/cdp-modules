@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { FETCH_ARTICLES, 
-         FETCH_ARTICLES_SUCCESS, 
-         FETCH_ARTICLES_FAILURE } from "../actions/types"; 
+import { FETCH_ARTICLES,
+         FETCH_ARTICLES_SUCCESS,
+         FETCH_ARTICLES_FAILURE } from "../actions/types";
 
 const CDP_PUBLIC_API = `${process.env.REACT_APP_CDP_PUBLIC_API}/v1/search`;  
 
