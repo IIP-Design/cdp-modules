@@ -3,7 +3,7 @@ import { FETCH_ARTICLES,
          FETCH_ARTICLES_SUCCESS,
          FETCH_ARTICLES_FAILURE } from "../actions/types";
 
-const CDP_PUBLIC_API = 'https://api.dev.america.gov/v1/search';  
+const CDP_PUBLIC_API = `${process.env.REACT_APP_CDP_PUBLIC_API}/v1/search`;  
 
 export function fetchArticles( query ) {
   const request = axios.post( CDP_PUBLIC_API, query );
