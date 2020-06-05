@@ -11,6 +11,7 @@ class Branding extends Component {
 
   handleClickOriginal = () => {
     const { title } = this.props.data;
+
     referralClickEvent( title );
   }
 
@@ -51,7 +52,7 @@ class Branding extends Component {
 
 Branding.propTypes = {
   data: object,
-  lang: object
+  lang: object,
 };
 
 export default Branding;

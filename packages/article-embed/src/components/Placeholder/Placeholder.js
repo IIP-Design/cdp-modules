@@ -6,7 +6,7 @@ const style = {
   color: '#999',
   textAlign: 'center',
   fontFamily: 'sans-serif',
-  fontSize: '13px'
+  fontSize: '13px',
 };
 
 const Placeholder = () => (

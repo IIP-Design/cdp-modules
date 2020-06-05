@@ -9,45 +9,49 @@ import logoShareamerica from '../assets/logo_shareamerica.svg';
 const logos = [
   { name: 'yali', logo: logoYali },
   { name: 'ylai', logo: logoYlai },
-  { name: 'share', logo: logoShareamerica }
+  { name: 'share', logo: logoShareamerica },
 ];
 
-const getLogo = ( site ) => {
+const getLogo = site => {
   const siteLogo = logos.filter( logo => site.indexOf( logo.name ) > -1 );
+
   if ( siteLogo[0] && siteLogo[0].logo ) {
     return siteLogo[0].logo;
   }
+
   return '';
 };
 
 const getDate = ( lang, date ) => {
   setDateLocale( lang );
   const localizedDate = moment( date ).format( 'LL' );
+
   return localizedDate;
 };
 
-const getImage = ( thumbnails ) => {
+const getImage = thumbnails => {
   if ( thumbnails.large && thumbnails.large.url ) {
     return thumbnails.large.url;
-  } else if ( thumbnails.full && thumbnails.full.url ) {
+  } if ( thumbnails.full && thumbnails.full.url ) {
     return thumbnails.full.url;
   }
+
   return null;
 };
 
-const getImageMeta = ( thumbnail ) => {
+const getImageMeta = thumbnail => {
   const imageMeta = {
-    alt: ( thumbnail.alt ? thumbnail.alt : ' ' ),
-    caption: ( thumbnail.caption ? thumbnail.caption : '' )
+    alt: thumbnail.alt ? thumbnail.alt : ' ',
+    caption: thumbnail.caption ? thumbnail.caption : '',
   };
 
   return imageMeta;
 };
 
-export const normalizeItem = ( data ) => {
+export const normalizeItem = data => {
   const source = data._source;
-  const thumbnail = ( ( source || {} ).thumbnail || {} );
-  const thumbnails = ( thumbnail.sizes || {} );
+  const thumbnail = ( source || {} ).thumbnail || {};
+  const thumbnails = thumbnail.sizes || {};
 
   const obj = {
     author: source.author,
@@ -65,7 +69,7 @@ export const normalizeItem = ( data ) => {
     sourcelink: `https://${source.site}`,
     thumbnail: getImage( thumbnails ),
     thumbnailMeta: getImageMeta( thumbnail ),
-    title: source.title
+    title: source.title,
   };
 
   return { ...obj };

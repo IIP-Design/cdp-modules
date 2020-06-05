@@ -3,25 +3,26 @@ import placeholderImageCourses from '../assets/placeholder_courses.jpg';
 import placeholderImagePodcast from '../assets/placeholder_podcast.jpg';
 import placeholderImageVideo from '../assets/placeholder_video.jpg';
 
-let placeholderImages = {
-  post : placeholderImageArticle,
-  page : placeholderImageArticle,
-  courses : placeholderImageCourses,
-  podcast : placeholderImagePodcast,
-  video : placeholderImageVideo
-}
+const placeholderImages = {
+  post: placeholderImageArticle,
+  page: placeholderImageArticle,
+  courses: placeholderImageCourses,
+  podcast: placeholderImagePodcast,
+  video: placeholderImageVideo,
+};
 
 export const getImage = ( article, minHeight = 0 ) => {
   let image;
   const { thumbnail } = article || {};
-  const tn = ( thumbnail && thumbnail.sizes ) ? thumbnail.sizes : thumbnail;
+  const tn = thumbnail && thumbnail.sizes ? thumbnail.sizes : thumbnail;
 
   if ( tn ) {
     image = getImageSize( tn, minHeight );
-  }  
-  if( !image ) {
+  }
+  if ( !image ) {
     image = getPlaceHolderImage( article );
   }
+
   return image;
 };
 
@@ -30,32 +31,35 @@ export const getImage = ( article, minHeight = 0 ) => {
  * specific placeholde rimage
  * {object} article Elastic search document
  */
-export const getPlaceHolderImage = ( article ) => {
+export const getPlaceHolderImage = article => {
   let image;
 
-  if( article.type === 'post' || article.type === 'page' ) {
+  if ( article.type === 'post' || article.type === 'page' ) {
     image = checkForAdditionalContentType( article );
   } else {
     image = placeholderImages[article.type];
   }
-  return ( image ) ? image : placeholderImageArticle; 
-}
+
+  return image || placeholderImageArticle;
+};
 
 /**
  * Generic pages and posts may have an additional 'content_type' taxonomy
- * attached.  If present return the custom type, esle generic article 
+ * attached.  If present return the custom type, esle generic article
  * placeholder
  * @param {object} article Elastic search document
  */
-export const checkForAdditionalContentType = ( article ) => {
-  if (article.custom_taxonomies && article.custom_taxonomies.content_type ) {
-    let type = article.custom_taxonomies.content_type;
-    if ( Array.isArray(type) && type.length && type[0].slug ) {
+export const checkForAdditionalContentType = article => {
+  if ( article.custom_taxonomies && article.custom_taxonomies.content_type ) {
+    const type = article.custom_taxonomies.content_type;
+
+    if ( Array.isArray( type ) && type.length && type[0].slug ) {
       return placeholderImages[article.custom_taxonomies.content_type[0].slug];
     }
   }
+
   return placeholderImageArticle;
-}; 
+};
 
 
 /**
@@ -64,19 +68,19 @@ export const checkForAdditionalContentType = ( article ) => {
  * @param {number} minHeight  minHeight requested
  */
 function getImageSize( sizes, minHeight ) {
-  let a = [];
+  const a = [];
+
   // loop over object props and get obj with height shortest height greater than minHeight
-  for ( let size in sizes ) { 
-    let s = sizes[size];
+  for ( const size in sizes ) {
+    const s = sizes[size];
+
     if ( s && s.height >= minHeight ) {
-      a.push(s);
+      a.push( s );
     }
   }
 
   // now loop over to get shortest width
-  a.sort( function(a, b) {
-    return +a.width - +b.width;
-  });
+  a.sort( ( a, b ) => +a.width - +b.width );
 
-  return ( a[0] && a[0].url ) ? a[0].url : null;
+  return a[0] && a[0].url ? a[0].url : null;
 }

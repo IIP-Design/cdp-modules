@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
-import ArticleReducer from "./reducer_articles";
+import { combineReducers } from 'redux';
+import ArticleReducer from './reducer_articles';
 
-const rootReducer = combineReducers({
-  articles: ArticleReducer
-});
+const rootReducer = combineReducers( {
+  articles: ArticleReducer,
+} );
 
 export default rootReducer;

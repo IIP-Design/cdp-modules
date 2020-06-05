@@ -12,6 +12,7 @@ export const widgets = {
         render: () => {// eslint-disable-line
           if ( !config || !config.selector ) {
             console.log( 'Please add a valid DOM node to add component to' );
+
             return;
           }
 
@@ -21,8 +22,8 @@ export const widgets = {
             sites={ config.sites }
             ids={ config.ids }
           />, document.querySelector( config.selector ) );
-        }
+        },
       };
-    }
-  }
+    },
+  },
 };

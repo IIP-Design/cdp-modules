@@ -19,7 +19,7 @@ class ArticleContainer extends Component {
       isLoading: true,
       noResults: false,
       data: {},
-      translations: trans.en
+      translations: trans.en,
     };
   }
 
@@ -27,20 +27,20 @@ class ArticleContainer extends Component {
     this.getData();
   }
 
-  onError = ( error ) => {
+  onError = error => {
     console.log( `Error: ${error.message}` );
     this.setState( {
       error,
-      isLoading: false
+      isLoading: false,
     } );
   }
 
-  onFetchResult = ( response ) => {
+  onFetchResult = response => {
     if ( response && response.hits.total === 0 ) {
       console.log( 'Your request returned no responses. This could be because the owner has removed this content. Please double check the post ID and index in your request.' );
       this.setState( {
         isLoading: false,
-        noResults: true
+        noResults: true,
       } );
     } else if ( response && response.hits.total > 0 ) {
       const data = normalizeItem( response.hits.hits[0] );
@@ -55,7 +55,7 @@ class ArticleContainer extends Component {
       this.setState( {
         isLoading: false,
         data,
-        translations: lang
+        translations: lang,
       } );
     }
   }
@@ -70,7 +70,7 @@ class ArticleContainer extends Component {
 
   render() {
     const {
-      error, isLoading, noResults, data, translations
+      error, isLoading, noResults, data, translations,
     } = this.state;
 
     if ( error ) {
@@ -79,9 +79,9 @@ class ArticleContainer extends Component {
           <h3>Sorry, there appears to have been an error while retrieving this content.</h3>
         </div>
       );
-    } else if ( isLoading ) {
+    } if ( isLoading ) {
       return <Placeholder />;
-    } else if ( noResults ) {
+    } if ( noResults ) {
       return (
         <div className="cdp-error-message" style={ { textAlign: 'center', margin: '3em 0' } }>
           <h3>Sorry, it looks like this content is currently unavailable.</h3>
@@ -99,7 +99,7 @@ class ArticleContainer extends Component {
 }
 
 ArticleContainer.propTypes = {
-  config: object
+  config: object,
 };
 
 export default ArticleContainer;

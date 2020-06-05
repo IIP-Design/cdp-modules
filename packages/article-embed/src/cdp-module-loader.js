@@ -4,12 +4,14 @@ const loadModule = () => {
 
   if ( existingScript ) {
     const css = document.createElement( 'link' );
+
     css.setAttribute( 'rel', 'stylesheet' );
     css.setAttribute( 'type', 'text/css' );
     css.setAttribute( 'href', `${process.env.REACT_APP_CDP_MODULES_URL}cdp-module-article-single.min.css` );
     document.head.appendChild( css );
 
     const script = document.createElement( 'script' );
+
     script.src = `${process.env.REACT_APP_CDP_MODULES_URL}cdp-module-article-single.min.js`;
     script.defer = true;
     document.body.appendChild( script );
@@ -19,7 +21,7 @@ const loadModule = () => {
         CDP.widgets.Article.new( { // eslint-disable-line no-undef
           selector: '#cdp-article-embed',
           sites: site,
-          ids: id
+          ids: id,
         } ).render();
       }
     };

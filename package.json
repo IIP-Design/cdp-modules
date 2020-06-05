@@ -10,7 +10,8 @@
     "build:articleFeed": "webpack --env articleFeed --config config/webpack.config.js --mode production",
     "dev": "npm run dev:articleEmbed & npm run dev:articleFeed",
     "dev:articleEmbed": "webpack --env articleEmbed --watch --config config/webpack.config.js --mode development",
-    "dev:articleFeed": "webpack --env articleFeed --watch --config config/webpack.config.js --mode development"
+    "dev:articleFeed": "webpack --env articleFeed --watch --config config/webpack.config.js --mode development",
+    "lint": "eslint --ext .js ./"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
