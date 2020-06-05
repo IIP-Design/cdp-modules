@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin");
+.article-item-group {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.4285rem;
+  color: #777;
+  list-style: none; }
+  .article-item-group.article-style-blog {
+    flex-flow: column; }
+
+.article-item {
+  flex: 1 0 100%;
+  box-sizing: border-box;
+  padding: 0 0.75rem 1rem; }
+  @media (min-width: 48em) {
+    .article-item {
+      flex: 0 0 50%; } }
+  @media (min-width: 60em) {
+    .article-item {
+      flex: 1 0 33.3333%; } }
+
+.article-style-blog .article-media {
+  float: none;
+  margin-right: 0; }
+  @media (min-width: 48em) {
+    .article-style-blog .article-media {
+      float: left;
+      margin-right: 1.5rem;
+      min-width: 33.3333%; } }
+
+.article-style-blog .article-content {
+  overflow: hidden; }
+
+.article-title {
+  text-decoration: none;
+  margin: .5rem 0 .3rem 0;
+  color: #3972AA;
+  font-weight: 700; }
+
+.article-title_link {
+  text-decoration: none;
+  color: #3972AA; }
+  .article-title_link:hover {
+    text-decoration: underline; }
+
+.article-content p {
+  margin-top: .7rem; }
+
+.article-media {
+  padding-bottom: 1rem; }
+
+.article-image {
+  background-color: #eee;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  background-repeat: none;
+  background-size: cover;
+  background-position: center center; }
+
+.article-image_circle {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto; }
+
+.article-meta {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 0.2rem; }
+  .article-meta span {
+    color: #3972AA;
+    font-weight: bold; }
+
+.article-tag {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #3972AA; }

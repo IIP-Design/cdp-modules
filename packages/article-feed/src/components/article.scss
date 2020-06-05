@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
+
+$tablet:   735px;
+$laptop:   900px;
+$desktop:  1100px;
+
+$font-color: #777;
+$font-size: 1rem;
+$font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+$title-font-weight: 700;
+$title-color-link: #3972AA;
+
+$meta-font-size:  .9rem;
+$meta-margin-top: .2rem;
+$meta-color: #aaa; //#7C7C7C;
+
+$tag-font-size:  .8rem;
+$tag-color: #aaa;
+
+
+.article-item-group {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: 1.4285rem;
+  color: $font-color;
+  list-style: none;
+
+  &.article-style-blog {
+    flex-flow: column;
+  }
+}
+
+.article-item {
+  flex: 1 0 100%;
+  box-sizing: border-box;
+  padding: 0 0.75rem 1rem;
+
+  @media (min-width: 48em) {
+    flex: 0 0 50%;
+  }
+
+  @media (min-width: 60em) {
+    flex: 1 0 33.3333%;
+  }
+}
+
+.article-style-blog {
+  .article-media {
+    float: none;
+    margin-right: 0;
+
+    @media (min-width: 48em) {
+      float: left;
+      margin-right: 1.5rem;
+      min-width: 33.3333%;
+    }
+  }
+
+  .article-content {
+    overflow:hidden;
+  }
+}
+
+.article-title  {
+  text-decoration:  none;
+  margin: .5rem 0 .3rem 0;
+  color: $title-color-link;
+  font-weight: $title-font-weight;
+}
+
+.article-title_link {
+  text-decoration:  none;
+  color: $title-color-link;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.article-content {
+  p {
+    margin-top: .7rem;
+  }
+}
+
+.article-media {
+  padding-bottom: 1rem;
+}
+
+.article-image {
+  background-color: #eee;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  background-repeat: none;
+  background-size: cover;
+  background-position: center center;
+}
+
+.article-image_circle {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.article-meta {
+  color: $meta-color;
+  font-size: $meta-font-size;
+  margin-top: $meta-margin-top;
+
+  span {
+    color: $title-color-link;
+    font-weight: bold;
+  }
+}
+
+.article-tag {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: $tag-font-size;
+  font-style: italic;
+  color: $title-color-link;
+}
