@@ -1,0 +1,20 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# Dependencies
+node_modules/
+
+# Environmental variables
+.env
+
+# Local/editor files
+.DS_Store
+.vscode/
+
+# Logs
+*.log
+
+# Production Builds
+build/
+
+# Testing
+coverage/

@@ -1,0 +1,40 @@
+.cdp-branding-container {
+  align-items: center;
+  border-top: solid 1px #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0 -20px;
+  padding: 20px 20px 10px;
+}
+
+.cdp-branding-logo {
+  max-width: 200px;
+  max-height: 20px;
+} 
+
+.cdp-branding-item {
+  color: #5b6168;
+  display: block;
+  font-size: 12px;
+  flex-basis: 33%;
+}
+
+.cdp-branding-item a {
+  color: #5b6168;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 545px) {
+  .cdp-branding-container {
+    flex-direction: column;
+  }
+  .cdp-branding-logo {
+    min-width: 150px;
+  }
+  .cdp-branding-item {
+    padding-bottom: 8px;
+  }
+}
