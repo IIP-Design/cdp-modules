@@ -1,0 +1,22 @@
+@import '../../../styles/colors.scss';
+
+.list-item {
+  background-color: $greyLightest;
+  border: 1px solid $greyLight;
+  border-bottom: $borderLight;
+  border-radius: 5px 5px 0 0;
+  box-shadow: $boxShadowUpward;
+  margin: 0;
+  padding: 1rem 2rem;
+  transform: translateY(1px);
+
+  &.active {
+    background-color: $white;
+    border-bottom: none;
+  }
+}
+
+.nav-link {
+  color: $black;
+  text-decoration: none;
+}

@@ -1,23 +1,29 @@
-import React from 'react';
-import { Link } from '@reach/router';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from '@reach/router';
+
+import Tab from './Tab/Tab';
 
 import './TabbedNav.module.scss';
 
-const TabbedNav = () => (
-  <nav styleName="nav">
-    <ul styleName="list">
-      <li styleName="list-item">
-        <Link to="article-embed">
-          Article Embed
-        </Link>
-      </li>
-      <li styleName="list-item">
-        <Link to="article-feed">
-          Article Feed
-        </Link>
-      </li>
-    </ul>
-  </nav>
-);
+const TabbedNav = () => {
+  const [active, setActive] = useState( 'article-embed' );
+
+  const location = useLocation();
+
+  useEffect( () => {
+    if ( location ) {
+      setActive( location.pathname );
+    }
+  }, [location, setActive] );
+
+  return (
+    <nav styleName="nav">
+      <ul styleName="list">
+        <Tab activeTab={ active } path="article-embed" title="Article Embed" />
+        <Tab activeTab={ active } path="article-feed" title="Article Feed" />
+      </ul>
+    </nav>
+  );
+};
 
 export default TabbedNav;
