@@ -26,6 +26,7 @@ const css = mode => new MiniCssExtractPlugin( {
 } );
 
 const html = () => new HtmlWebpackPlugin( {
+  favicon: `${paths.exampleAssets}/favicon.ico`,
   template: paths.exampleHTML,
 } );
 
