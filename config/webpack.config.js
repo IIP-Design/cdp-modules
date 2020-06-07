@@ -12,6 +12,7 @@ module.exports = ( env, argv ) => {
   return {
     devServer: {
       contentBase: paths.builds,
+      historyApiFallback: true,
     },
     entry: {
       [env]: paths[index],
