@@ -1,0 +1,17 @@
+{
+  "name": "example-site",
+  "version": "1.0.0",
+  "description": "Example site to test CDP modules",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "@reach/router": "^1.3.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "prop-types": "^15.7.2"
+  }
+}

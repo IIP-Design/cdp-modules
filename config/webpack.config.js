@@ -10,6 +10,9 @@ module.exports = ( env, argv ) => {
   const index = `${env}Index`;
 
   return {
+    devServer: {
+      contentBase: paths.builds,
+    },
     entry: {
       [env]: paths[index],
     },
@@ -69,7 +72,6 @@ module.exports = ( env, argv ) => {
     output: {
       filename: argv.mode === 'development' ? 'dev-[name].js' : 'gpalab-[name].js',
       path: paths.builds,
-      publicPath: '/',
     },
     plugins: plugins.loadPlugins( argv.mode, env ),
     resolve: {
@@ -77,6 +79,6 @@ module.exports = ( env, argv ) => {
         '*', '.js', '.jsx',
       ],
     },
-    target: env === 'server' ? 'node' : 'web',
+    target: 'web',
   };
 };

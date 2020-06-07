@@ -1,0 +1,25 @@
+@import '../../styles/colors.scss';
+
+.content {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.header {
+  background-color: $blueBright;
+  border-bottom: solid 7px $gold;
+  padding: 2rem;
+}
+
+.seal {
+  color: $white;
+  height: 100px;
+  margin: 0 1.5rem;
+}
+
+.title {
+  color: $white;
+  margin: 0;
+}

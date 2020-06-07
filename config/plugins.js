@@ -1,31 +1,33 @@
 const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' );
-// const CopyPlugin = require( 'copy-webpack-plugin' );
-// const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
+const CopyPlugin = require( 'copy-webpack-plugin' );
+const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
-// const paths = require( './paths' );
+const paths = require( './paths' );
 
-// const assets = env => {
-//   if ( env === 'app' ) {
-//     return new CopyPlugin( [{ from: paths.appAssets, to: `${paths.appDist}/assets` }] );
-//   }
+const assets = env => {
+  if ( env === 'example' ) {
+    return new CopyPlugin( {
+      patterns: [{ from: paths.exampleAssets, to: `${paths.builds}/assets` }],
+    } );
+  }
 
-//   return () => {};
-// };
+  if ( env === 'articleEmbed' ) {
+    return new CopyPlugin( {
+      patterns: [{ from: paths.articleEmbedLoader, to: `${paths.builds}/cdp-module-loader.js` }],
+    } );
+  }
+
+  return () => {};
+};
 
 const css = mode => new MiniCssExtractPlugin( {
   filename: mode === 'development' ? 'dev-[name].css' : 'gpalab-[name].css',
 } );
 
-// const html = env => {
-//   if ( env === 'app' ) {
-//     return new HtmlWebpackPlugin( {
-//       template: paths.appHTML,
-//     } );
-//   }
-
-//   return () => {};
-// };
+const html = () => new HtmlWebpackPlugin( {
+  template: paths.exampleHTML,
+} );
 
 const analyzer = env => new BundleAnalyzerPlugin( {
   analyzerMode: 'static',
@@ -35,19 +37,26 @@ const analyzer = env => new BundleAnalyzerPlugin( {
   statsFilename: `stats/${env}Stats.json`,
 } );
 
-// const loadPlugins = ( mode, env ) => {
-//   if ( mode === 'development' ) {
-//     return [
-//       assets( env ), css( mode ), html( env ),
-//     ];
-//   }
+const loadPlugins = ( mode, env ) => {
+  const common = [css( mode )];
 
-//   return [
-//     assets( env ), css( mode ), html( env ),
-//   ];
-// };
+  if ( env === 'example' ) {
+    return [
+      ...common,
+      assets( env ),
+      html( env ),
+    ];
+  }
 
-const loadPlugins = ( mode, env ) => [css( mode )];
+  if ( env === 'articleEmbed' ) {
+    return [
+      ...common,
+      assets( env ),
+    ];
+  }
+
+  return common;
+};
 
 module.exports = {
   analyzer,

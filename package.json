@@ -1,6 +1,10 @@
 {
   "name": "root",
   "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Bureau of Global Public Affairs, U.S. Department of State"
+  },
   "scripts": {
     "analyze": "npm run analyze:articleEmbed && npm run analyze:articleFeed",
     "analyze:articleEmbed": "webpack --env articleEmbed --config config/webpack.analyze.js --mode production",
@@ -8,9 +12,10 @@
     "build": "npm run build:articleEmbed && npm run build:articleFeed",
     "build:articleEmbed": "webpack --env articleEmbed --config config/webpack.config.js --mode production",
     "build:articleFeed": "webpack --env articleFeed --config config/webpack.config.js --mode production",
-    "dev": "npm run dev:articleEmbed & npm run dev:articleFeed",
+    "dev": "npm run dev:articleEmbed & npm run dev:articleFeed & npm run example",
     "dev:articleEmbed": "webpack --env articleEmbed --watch --config config/webpack.config.js --mode development",
     "dev:articleFeed": "webpack --env articleFeed --watch --config config/webpack.config.js --mode development",
+    "example": "webpack-dev-server --env example --config config/webpack.config.js --mode development",
     "lint": "eslint --ext .js ./"
   },
   "devDependencies": {
@@ -24,6 +29,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-react-css-modules": "^5.2.6",
+    "copy-webpack-plugin": "^6.0.2",
     "css-loader": "^3.5.3",
     "eslint": "^6.8.0",
     "eslint-loader": "^4.0.2",
@@ -32,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "html-webpack-plugin": "^4.3.0",
     "lerna": "^3.22.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
@@ -43,6 +50,7 @@
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
   }
 }
