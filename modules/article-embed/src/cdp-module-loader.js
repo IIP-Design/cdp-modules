@@ -7,12 +7,12 @@ const loadModule = () => {
 
     css.setAttribute( 'rel', 'stylesheet' );
     css.setAttribute( 'type', 'text/css' );
-    css.setAttribute( 'href', `${process.env.REACT_APP_CDP_MODULES_URL}cdp-module-article-single.min.css` );
+    css.setAttribute( 'href', `${process.env.CDP_MODULES_URL}cdp-module-article-single.min.css` );
     document.head.appendChild( css );
 
     const script = document.createElement( 'script' );
 
-    script.src = `${process.env.REACT_APP_CDP_MODULES_URL}cdp-module-article-single.min.js`;
+    script.src = `${process.env.CDP_MODULES_URL}cdp-module-article-single.min.js`;
     script.defer = true;
     document.body.appendChild( script );
 

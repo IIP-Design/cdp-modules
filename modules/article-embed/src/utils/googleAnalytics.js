@@ -1,9 +1,9 @@
 import ReactGA from 'react-ga';
 
 const analyticsIds = [
-  { name: 'share', id: process.env.REACT_APP_GA_ID_SHARE },
-  { name: 'yali', id: process.env.REACT_APP_GA_ID_YALI },
-  { name: 'ylai', id: process.env.REACT_APP_GA_ID_YLAI },
+  { name: 'share', id: process.env.GA_ID_SHARE },
+  { name: 'yali', id: process.env.GA_ID_YALI },
+  { name: 'ylai', id: process.env.GA_ID_YLAI },
 ];
 
 const getUAIds = site => {

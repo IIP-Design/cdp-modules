@@ -1,5 +1,6 @@
 const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' );
 const CopyPlugin = require( 'copy-webpack-plugin' );
+const DotEnv = require( 'dotenv-webpack' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
@@ -23,6 +24,10 @@ const assets = env => {
 
 const css = mode => new MiniCssExtractPlugin( {
   filename: mode === 'development' ? 'dev-[name].css' : 'gpalab-[name].css',
+} );
+
+const dotEnv = env => new DotEnv( {
+  path: paths[`${env}Env`],
 } );
 
 const html = () => new HtmlWebpackPlugin( {
@@ -53,6 +58,7 @@ const loadPlugins = ( mode, env ) => {
     return [
       ...common,
       assets( env ),
+      dotEnv( env ),
     ];
   }
 

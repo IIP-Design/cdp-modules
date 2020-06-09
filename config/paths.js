@@ -8,9 +8,10 @@ const appDirectory = fs.realpathSync( process.cwd() );
 const resolveApp = relativePath => path.resolve( appDirectory, relativePath );
 
 module.exports = {
-  articleEmbedIndex: resolveApp( 'packages/article-embed/src/index.js' ),
-  articleEmbedLoader: resolveApp( 'packages/article-embed/src/cdp-module-loader.js' ),
-  articleFeedIndex: resolveApp( 'packages/article-feed/src/index.js' ),
+  articleEmbedIndex: resolveApp( 'modules/article-embed/src/index.js' ),
+  articleEmbedLoader: resolveApp( 'modules/article-embed/src/cdp-module-loader.js' ),
+  articleEmbedEnv: resolveApp( 'modules/article-embed/.env' ),
+  articleFeedIndex: resolveApp( 'modules/article-feed/src/index.js' ),
   builds: resolveApp( 'build' ),
   exampleAssets: resolveApp( 'example/assets' ),
   exampleIndex: resolveApp( 'example/src/index.js' ),

@@ -4,19 +4,17 @@ const babel = require( './babel' );
 const css = require( './css-modules' );
 const paths = require( './paths' );
 const plugins = require( './plugins' );
+const utils = require( './utils' );
 
 module.exports = ( env, argv ) => {
   const cssModuleNames = css.getCssModuleNames( argv.mode );
-  const index = `${env}Index`;
 
   return {
     devServer: {
       contentBase: paths.builds,
       historyApiFallback: true,
     },
-    entry: {
-      [env]: paths[index],
-    },
+    entry: utils.setEntry( env ),
     module: {
       rules: [
         {
