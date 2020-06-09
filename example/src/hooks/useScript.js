@@ -11,7 +11,7 @@ const useScript = ( url, data, id ) => {
 
     if ( data ) {
       data.forEach( prop => {
-        script[prop.name] = prop.value;
+        script.dataset[prop.name] = prop.value;
       } );
     }
 

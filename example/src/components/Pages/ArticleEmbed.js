@@ -6,8 +6,8 @@ import './Pages.module.scss';
 
 const ArticleEmbed = () => {
   const data = [
-    { id: 3487 },
-    { site: 'ylai.dev.america.gov' },
+    { name: 'id', value: 3487 },
+    { name: 'site', value: 'ylai.dev.america.gov' },
   ];
 
   useScript( './dev-articleEmbedLoader.js', data, 'cdpArticle' );
