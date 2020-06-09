@@ -1,4 +1,13 @@
 {
+  "command": {
+    "publish": {
+      "ignoreChanges": ["ignored-file", "*.md"]
+    },
+    "version": {
+      "allowBranch": "master"
+    }
+  },
+  "npmClient": "npm",
   "packages": ["modules/*"],
-  "version": "1.0.3"
+  "version": "independent"
 }
