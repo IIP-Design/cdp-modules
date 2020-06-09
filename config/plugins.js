@@ -17,7 +17,7 @@ const assets = env => {
 };
 
 const css = mode => new MiniCssExtractPlugin( {
-  filename: mode === 'development' ? 'dev-[name].css' : 'gpalab-[name].css',
+  filename: mode === 'development' ? 'dev-[name].css' : 'gpalab-[name].min.css',
 } );
 
 const dotEnv = env => new DotEnv( {

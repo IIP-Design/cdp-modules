@@ -17,6 +17,12 @@ const setEntry = env => {
   return entry;
 };
 
+const setOutput = ( env, mode ) => ( {
+  filename: mode === 'development' ? 'dev-[name].js' : 'gpalab-[name].min.js',
+  path: paths.builds,
+} );
+
 module.exports = {
   setEntry,
+  setOutput,
 };

@@ -10,7 +10,7 @@ const ArticleEmbed = () => {
     { site: 'ylai.dev.america.gov' },
   ];
 
-  useScript( './cdp-module-loader.js', data, 'cdpArticle' );
+  useScript( './dev-articleEmbedLoader.js', data, 'cdpArticle' );
 
   return (
     <Fragment>

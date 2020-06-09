@@ -68,10 +68,7 @@ module.exports = ( env, argv ) => {
         },
       ],
     },
-    output: {
-      filename: argv.mode === 'development' ? 'dev-[name].js' : 'gpalab-[name].js',
-      path: paths.builds,
-    },
+    output: utils.setOutput( env, argv.mode ),
     plugins: plugins.loadPlugins( argv.mode, env ),
     resolve: {
       extensions: [
