@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 
 import ArticleSingle from './articleSingle';
 
-import './articleSingle.css';
-
 export const widgets = {
   Article: {
     new: function ( config ) {// eslint-disable-line

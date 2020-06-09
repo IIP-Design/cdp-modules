@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { object } from 'prop-types';
+import PropTypes from 'prop-types';
 import { referralClickEvent } from '../../utils/googleAnalytics';
 
-import './Branding.css';
+import './Branding.module.scss';
 
 class Branding extends Component {
   handleClickHome = () => {
@@ -20,16 +20,16 @@ class Branding extends Component {
     const { lang } = this.props;
 
     return (
-      <section className="cdp-branding-container">
-        <div className="cdp-branding-item" style={ { textAlign: 'left' } }>
+      <section styleName="container">
+        <div styleName="item" style={ { textAlign: 'left' } }>
           <a href={ `https://${data.site}` } target="_blank" rel="noopener noreferrer" onClick={ this.handleClickHome }>
-            <img className="cdp-branding-logo" src={ data.logo } alt={ data.owner } />
+            <img styleName="logo" src={ data.logo } alt={ data.owner } />
           </a>
         </div>
-        <div className="cdp-branding-item" style={ { textAlign: 'center' } }>
+        <div styleName="item" style={ { textAlign: 'center' } }>
           <a
             href={ data.link }
-            target="_blank"
+            target="_blank" // eslint-disable-line react/jsx-no-target-blank
             rel="noopener"
             style={ { direction: `${lang.textDirection}` } }
             onClick={ this.handleClickOriginal }
@@ -38,7 +38,7 @@ class Branding extends Component {
           </a>
         </div>
         <div
-          className="cdp-branding-item"
+          styleName="item"
           style={ { textAlign: 'right', direction: `${lang.textDirection}` } }
         >
           <a href="https://commons.america.gov/" target="_blank" rel="noopener noreferrer">
@@ -51,8 +51,8 @@ class Branding extends Component {
 }
 
 Branding.propTypes = {
-  data: object,
-  lang: object,
+  data: PropTypes.object,
+  lang: PropTypes.object,
 };
 
 export default Branding;

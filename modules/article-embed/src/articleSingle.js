@@ -2,10 +2,10 @@ import React from 'react';
 
 import ArticleContainer from './containers/ArticleContainer';
 
-import './articleSingle.css';
+import './articleSingle.module.scss';
 
 const ArticleSingle = props => (
-  <div className="cdp-single">
+  <div styleName="article-embed">
     <ArticleContainer config={ props } />
   </div>
 );

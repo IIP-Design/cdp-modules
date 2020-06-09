@@ -1,34 +1,32 @@
 import React from 'react';
 import Parser from 'html-react-parser';
-import { object } from 'prop-types';
+import PropTypes from 'prop-types';
 
-import './Article.css';
+import './Article.module.scss';
 
 const ArticleItem = ( { data, lang } ) => (
-  <article className="cdp-article-single" style={ { direction: `${lang.textDirection}` } }>
+  <article style={ { direction: `${lang.textDirection}` } }>
     { data.thumbnail && (
-      <div className="cdp-article-single-media">
-        <figure className="aligncenter">
-          <img className="cdp-article-single-feat-img" src={ data.thumbnail } alt={ data.thumbnailMeta.alt } />
-          <figcaption className="cdp-article-single-feat-cap">{ data.thumbnailMeta.caption }</figcaption>
+      <div styleName="media">
+        <figure styleName="figure aligncenter">
+          <img alt={ data.thumbnailMeta.alt } src={ data.thumbnail } styleName="image" />
+          <figcaption styleName="feat-cap">{ data.thumbnailMeta.caption }</figcaption>
         </figure>
       </div>
     ) }
-    <div className="cdp-article-single-content">
-      <h1 className="cdp-article-single-title">{ data.title }</h1>
-      <div className="cdp-article-single-meta">{ `${data.author.name} - ${data.date}` }</div>
-      <div className="cdp-article-single-content">
-        { ' ' }
+    <div styleName="content">
+      <h1 styleName="title">{ data.title }</h1>
+      <div>{ `${data.author.name} - ${data.date}` }</div>
+      <div styleName="content">
         { Parser( data.content ) }
-        { ' ' }
       </div>
     </div>
   </article>
 );
 
 ArticleItem.propTypes = {
-  data: object,
-  lang: object,
+  data: PropTypes.object,
+  lang: PropTypes.object,
 };
 
 export default ArticleItem;
