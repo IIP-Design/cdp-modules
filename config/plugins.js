@@ -13,12 +13,6 @@ const assets = env => {
     } );
   }
 
-  if ( env === 'articleEmbed' ) {
-    return new CopyPlugin( {
-      patterns: [{ from: paths.articleEmbedLoader, to: `${paths.builds}/cdp-module-loader.js` }],
-    } );
-  }
-
   return () => {};
 };
 
@@ -57,7 +51,6 @@ const loadPlugins = ( mode, env ) => {
   if ( env === 'articleEmbed' ) {
     return [
       ...common,
-      assets( env ),
       dotEnv( env ),
     ];
   }
