@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import Embed from '../Embed/Embed';
 import Branding from '../Branding/Branding';
+import Embed from '../Embed/Embed';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Placeholder from '../Placeholder/Placeholder';
 
 import { getItemRequest } from '../../utils/api';
@@ -20,30 +21,32 @@ const Article = ( { id, site } ) => {
   const [translations, setTranslations] = useState( trans.en );
 
   const onError = error => {
-    console.log( `Error: ${error.message}` );
+    console.error( `Error: ${error.message}` );
     setError( error );
     setIsLoading( false );
   };
 
   const onFetchResult = response => {
-    if ( response && response.hits.total === 0 ) {
-      console.log( 'Your request returned no responses. This could be because the owner has removed this content. Please double check the post ID and index in your request.' );
+    if ( response?.hits ) {
+      if ( response.hits.total === 0 ) {
+        console.error( 'Your request returned no responses. This could be because the owner has removed this content. Please double check the post ID and index in your request.' );
 
-      setIsLoading( false );
-      setNoResults( true );
-    } else if ( response && response.hits.total > 0 ) {
-      const normalized = normalizeItem( response.hits.hits[0] );
-      let lang = trans[normalized.language.language_code];
+        setNoResults( true );
+        setIsLoading( false );
+      } else {
+        const normalized = normalizeItem( response.hits.hits[0] );
+        let lang = trans[normalized.language.language_code];
 
-      if ( !lang ) {
-        lang = trans.en;
+        if ( !lang ) {
+          lang = trans.en;
+        }
+
+        initiateAnalytics( normalized );
+
+        setData( normalized );
+        setTranslations( lang );
+        setIsLoading( false );
       }
-
-      initiateAnalytics( normalized );
-
-      setData( normalized );
-      setIsLoading( false );
-      setTranslations( lang );
     }
   };
 
@@ -53,21 +56,11 @@ const Article = ( { id, site } ) => {
       .catch( error => onError( error ) );
   }, [id, site] );
 
-  if ( error ) {
-    return (
-      <div className="cdp-error-message" style={ { textAlign: 'center', margin: '3em 0' } }>
-        <h3>Sorry, there appears to have been an error while retrieving this content.</h3>
-      </div>
-    );
-  } if ( isLoading ) {
-    return <Placeholder />;
-  } if ( noResults ) {
-    return (
-      <div className="cdp-error-message" style={ { textAlign: 'center', margin: '3em 0' } }>
-        <h3>Sorry, it looks like this content is currently unavailable.</h3>
-      </div>
-    );
-  }
+  if ( error ) return <div styleName="article-embed"><ErrorMessage /></div>;
+
+  if ( isLoading ) return <div styleName="article-embed"><Placeholder /></div>;
+
+  if ( noResults ) return <div styleName="article-embed"><ErrorMessage noResults={ noResults } /></div>;
 
   return (
     <div styleName="article-embed">

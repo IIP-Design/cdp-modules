@@ -6,8 +6,6 @@ import Article from './components/Article/Article';
 export const widgets = {
   Article: {
     new: function ( config ) {// eslint-disable-line
-      console.log( config );
-
       return {
         render: () => {// eslint-disable-line
           if ( !config || !config.selector ) {
