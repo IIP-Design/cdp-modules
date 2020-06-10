@@ -8,6 +8,7 @@ const appDirectory = fs.realpathSync( process.cwd() );
 const resolveApp = relativePath => path.resolve( appDirectory, relativePath );
 
 module.exports = {
+  articleEmbedAssets: resolveApp( 'modules/article-embed/src/assets' ),
   articleEmbedIndex: resolveApp( 'modules/article-embed/src/index.js' ),
   articleEmbedLoader: resolveApp( 'modules/article-embed/src/cdp-module-loader.js' ),
   articleEmbedEnv: resolveApp( 'modules/article-embed/.env' ),

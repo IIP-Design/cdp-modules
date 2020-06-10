@@ -52,7 +52,7 @@ module.exports = ( env, argv ) => {
         },
         {
           test: [
-            /\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/,
+            /\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/,
           ],
           use: {
             loader: 'url-loader',
@@ -61,10 +61,6 @@ module.exports = ( env, argv ) => {
               name: 'static/[name].[hash:8].[ext]',
             },
           },
-        },
-        {
-          test: /\.svg$/,
-          loader: 'svg-inline-loader',
         },
       ],
     },
