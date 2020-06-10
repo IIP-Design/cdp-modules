@@ -23,8 +23,8 @@ const loadModule = () => {
       if ( CDP?.widgets?.Article ) { // eslint-disable-line no-undef
         CDP.widgets.Article.new( { // eslint-disable-line no-undef
           selector: '#cdp-article-embed',
-          sites: site,
-          ids: id,
+          site,
+          id,
         } ).render();
       }
     };

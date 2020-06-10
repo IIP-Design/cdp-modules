@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ArticleSingle from './articleSingle';
+import Article from './components/Article/Article';
 
 export const widgets = {
   Article: {
     new: function ( config ) {// eslint-disable-line
+      console.log( config );
+
       return {
         render: () => {// eslint-disable-line
           if ( !config || !config.selector ) {
@@ -14,12 +16,15 @@ export const widgets = {
             return;
           }
 
-          ReactDOM.render( <ArticleSingle
-            selector={ config.selector }
-            query={ config.query }
-            sites={ config.sites }
-            ids={ config.ids }
-          />, document.querySelector( config.selector ) );
+          ReactDOM.render(
+            <Article
+              selector={ config.selector }
+              query={ config.query }
+              site={ config.site }
+              id={ config.id }
+            />,
+            document.querySelector( config.selector ),
+          );
         },
       };
     },

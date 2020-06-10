@@ -1,0 +1,44 @@
+figure.figure {
+  max-width: 100%;
+}
+
+img.image {
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption.feat-cap {
+  color: #5b6168;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.media {
+  display: flex;
+  margin: 0 auto 26px;
+  position: relative;
+}
+
+.content {
+  padding: 10px 0;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 1em;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1em;
+}
+
+.aligncenter,
+.alignnone {
+  display: block;
+  margin: 0 auto;
+}
