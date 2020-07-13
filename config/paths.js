@@ -9,10 +9,12 @@ const resolveApp = relativePath => path.resolve( appDirectory, relativePath );
 
 module.exports = {
   articleEmbedAssets: resolveApp( 'modules/article-embed/src/assets' ),
+  articleEmbedEnv: resolveApp( 'modules/article-embed/.env' ),
   articleEmbedIndex: resolveApp( 'modules/article-embed/src/index.js' ),
   articleEmbedLoader: resolveApp( 'modules/article-embed/src/cdp-module-loader.js' ),
-  articleEmbedEnv: resolveApp( 'modules/article-embed/.env' ),
+  articleFeedEnv: resolveApp( 'modules/article-feed/.env' ),
   articleFeedIndex: resolveApp( 'modules/article-feed/src/index.js' ),
+  articleFeedLoader: resolveApp( 'modules/article-feed/src/cdp-module-loader.js' ),
   builds: resolveApp( 'build' ),
   exampleAssets: resolveApp( 'example/assets' ),
   exampleIndex: resolveApp( 'example/src/index.js' ),

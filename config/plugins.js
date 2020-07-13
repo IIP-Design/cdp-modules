@@ -48,7 +48,7 @@ const loadPlugins = ( mode, env ) => {
     ];
   }
 
-  if ( env === 'articleEmbed' ) {
+  if ( env === 'articleEmbed' || env === 'articleFeed' ) {
     return [
       ...common,
       dotEnv( env ),

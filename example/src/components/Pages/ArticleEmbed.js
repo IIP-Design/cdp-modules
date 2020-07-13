@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import useScript from '../../hooks/useScript';
+import { getConfig } from './utils';
 
 import './Pages.module.scss';
 
@@ -10,7 +11,7 @@ const ArticleEmbed = () => {
     { name: 'site', value: 'ylai.dev.america.gov' },
   ];
 
-  useScript( './dev-articleEmbedLoader.js', data, 'cdpArticle' );
+  useScript( './dev-articleEmbedLoader.js', getConfig( data ), 'cdpArticle' );
 
   return (
     <Fragment>

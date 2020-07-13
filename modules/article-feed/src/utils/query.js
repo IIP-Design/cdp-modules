@@ -87,7 +87,7 @@ export const queryBuilder = params => {
     }
   }
 
-  // do not set frrom/size when querying for specific ids
+  // do not set from/size when querying for specific ids
   if ( !hasValue( params.ids ) ) {
     const size = params.size && Number.isInteger( +params.size ) ? params.size : 3;
     const from = params.from && Number.isInteger( +params.from ) ? params.from : 0;

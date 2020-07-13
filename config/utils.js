@@ -23,7 +23,7 @@ const setOutput = ( env, mode ) => {
     path: paths.builds,
   };
 
-  if ( env === 'articleEmbed' ) {
+  if ( env === 'articleEmbed' || env === 'articleFeed' ) {
     return {
       ...base,
       library: ['CDP'],
