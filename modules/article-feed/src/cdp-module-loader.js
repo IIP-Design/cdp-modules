@@ -25,7 +25,7 @@ const loadModule = () => {
         CDP.widgets.ArticleFeed.new( { // eslint-disable-line no-undef
           selector: '#cdp-article-feed',
           sites,
-          size,
+          size: Number( size ),
           types,
         } ).render();
       }

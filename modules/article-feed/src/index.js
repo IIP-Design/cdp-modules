@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { getDefaultConfig, getUIConfig } from './utils/config';
 
 import ArticleFeed from './article_feed';

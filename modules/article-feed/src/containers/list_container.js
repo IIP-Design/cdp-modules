@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
+
+import List from '../components/List/List';
+
 import { fetchArticles, fetchArticlesSuccess, fetchArticlesFailure } from '../actions';
-import List from '../components/list';
 
 const mapStateToProps = state => ( {
   articleList: state.articles.articleList,

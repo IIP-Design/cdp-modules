@@ -19,6 +19,16 @@ const formatWidth = width => {
   return ~width.indexOf( 'px' ) ? width : `${width}px`;
 };
 
+const getImageBorderColor = imageConfig => {
+  let borderColor = 'transparent';
+
+  if ( imageConfig.borderWidth ) {
+    borderColor = imageConfig.borderColor || '#ddd';
+  }
+
+  return borderColor;
+};
+
 const getImageUI = imageConfig => {
   if ( !imageConfig ) {
     return defaultImage;
@@ -34,21 +44,11 @@ const getImageUI = imageConfig => {
   return image;
 };
 
-const getImageBorderColor = imageConfig => {
-  let borderColor = 'transparent';
-
-  if ( imageConfig.borderWidth ) {
-    borderColor = imageConfig.borderColor || '#ddd';
-  }
-
-  return borderColor;
-};
-
 export const getDefaultConfig = () => ( {
   sites: '',
   ids: '',
   from: 0,
-  size: '3',
+  size: 3,
   types: '',
   langs: '',
   tags: '',
