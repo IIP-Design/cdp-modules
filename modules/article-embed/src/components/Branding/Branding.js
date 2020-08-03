@@ -19,7 +19,7 @@ const Branding = ( { data, lang } ) => {
     <section styleName="container">
       <div styleName="item" style={ { textAlign: 'left' } }>
         <a href={ `https://${data.site}` } target="_blank" rel="noopener noreferrer" onClick={ handleClickHome }>
-          <img styleName="logo" src={ data.logo } alt={ data.owner } />
+          <img styleName="logo" src={ `${process.env.CDP_MODULES_URL}${data.logo}` } alt={ data.owner } />
         </a>
       </div>
       <div styleName="item" style={ { textAlign: 'center' } }>
