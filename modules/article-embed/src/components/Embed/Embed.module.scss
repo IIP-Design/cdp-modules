@@ -21,6 +21,15 @@ figcaption.feat-cap {
 
 .content {
   padding: 10px 0;
+
+  > figure {
+    max-width: 100%;
+
+    > img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
 
 .title {
