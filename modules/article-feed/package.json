@@ -6,7 +6,7 @@
     "prop-types": "^15.7.2"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bodybuilder": "^2.2.21",
     "moment": "^2.27.0",
     "react": "^16.13.1",
