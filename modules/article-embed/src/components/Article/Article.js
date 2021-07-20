@@ -27,14 +27,14 @@ const Article = ( { id, site } ) => {
   };
 
   const onFetchResult = response => {
-    if ( response?.hits ) {
-      if ( response.hits.total === 0 ) {
+    if ( response?.hits?.total?.value ) {
+      if ( response.hits.total.value === 0 ) {
         console.error( 'Your request returned no responses. This could be because the owner has removed this content. Please double check the post ID and index in your request.' );
 
         setNoResults( true );
         setIsLoading( false );
       } else {
-        const normalized = normalizeItem( response.hits.hits[0] );
+        const normalized = normalizeItem( response?.hits?.hits?.[0] );
         let lang = trans[normalized.language.language_code];
 
         if ( !lang ) {
