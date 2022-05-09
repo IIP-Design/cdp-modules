@@ -1,5 +1,5 @@
 {
-  "name": "example-site",
+  "name": "@gpa-lab/cdp-module-examples",
   "version": "1.0.0",
   "description": "Example site to test CDP modules",
   "main": "src/index.js",

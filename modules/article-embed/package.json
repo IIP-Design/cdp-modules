@@ -1,5 +1,5 @@
 {
-  "name": "cdp-article-embed",
+  "name": "@gpa-lab/article-embed",
   "version": "1.0.3",
   "private": true,
   "dependencies": {
