@@ -5,9 +5,10 @@ const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 const paths = require( './paths' );
+const utils = require( './utils' );
 
-const assets = env => {
-  if ( env === 'example' ) {
+const assets = bundle => {
+  if ( bundle === 'example' ) {
     return new CopyPlugin( {
       patterns: [{ from: paths.exampleAssets, to: `${paths.builds}/assets` }],
     } );
@@ -20,38 +21,46 @@ const css = mode => new MiniCssExtractPlugin( {
   filename: mode === 'development' ? 'dev-[name].css' : 'gpalab-[name].min.css',
 } );
 
-const dotEnv = env => new DotEnv( {
-  path: paths[`${env}Env`],
+const dotEnv = bundle => new DotEnv( {
+  path: paths[`${bundle}Env`],
 } );
 
 const html = () => new HtmlWebpackPlugin( {
   favicon: `${paths.exampleAssets}/favicon.ico`,
+  title: 'Modules Example Site',
   template: paths.exampleHTML,
 } );
 
-const analyzer = env => new BundleAnalyzerPlugin( {
-  analyzerMode: 'static',
-  generateStatsFile: true,
-  openAnalyzer: true,
-  reportFilename: `stats/${env}Stats.html`,
-  statsFilename: `stats/${env}Stats.json`,
-} );
+const analyzer = env => {
+  const bundle = utils.extractBundleName(env);
+
+  return new BundleAnalyzerPlugin( {
+    analyzerMode: 'static',
+    generateStatsFile: true,
+    openAnalyzer: true,
+    reportFilename: `stats/${bundle}Stats.html`,
+    statsFilename: `stats/${bundle}Stats.json`,
+  } )
+};
 
 const loadPlugins = ( mode, env ) => {
+  // Extract the name of package build built.
+  const bundle = utils.extractBundleName(env);
+
   const common = [css( mode )];
 
-  if ( env === 'example' ) {
+  if ( bundle === 'example' ) {
     return [
       ...common,
-      assets( env ),
-      html( env ),
+      assets( bundle ),
+      html(),
     ];
   }
 
-  if ( env === 'articleEmbed' || env === 'articleFeed' ) {
+  if ( bundle === 'articleEmbed' ||  bundle === 'articleFeed' ) {
     return [
       ...common,
-      dotEnv( env ),
+      dotEnv( bundle ),
     ];
   }
 

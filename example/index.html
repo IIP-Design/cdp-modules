@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example Site</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <%= htmlWebpackPlugin.tags.headTags %>
   </head>
   <body>
+    <%= htmlWebpackPlugin.tags.bodyTags %>
     <div id="example"></div>
   </body>
 </html>

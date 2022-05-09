@@ -11,8 +11,10 @@ module.exports = ( env, argv ) => {
 
   return {
     devServer: {
-      contentBase: paths.builds,
       historyApiFallback: true,
+      static: {
+        directory: paths.builds,
+      }
     },
     entry: utils.setEntry( env ),
     module: {
