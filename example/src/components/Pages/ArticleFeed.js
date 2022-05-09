@@ -16,7 +16,7 @@ const ArticleFeed = () => {
 
   return (
     <Fragment>
-      <h2 className={style.title}>Sample Article Feed:</h2>
+      <h2 className={ style.title }>Sample Article Feed:</h2>
       <div id="cdp-article-feed" />
     </Fragment>
   );

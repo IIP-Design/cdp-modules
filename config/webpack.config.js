@@ -12,9 +12,9 @@ module.exports = ( env, argv ) => {
   return {
     devServer: {
       historyApiFallback: true,
-      static: {
+      'static': {
         directory: paths.builds,
-      }
+      },
     },
     entry: utils.setEntry( env ),
     module: {

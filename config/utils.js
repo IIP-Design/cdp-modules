@@ -1,23 +1,23 @@
 const paths = require( './paths' );
 
 const extractBundleName = env => {
-  const {articleEmbed, articleFeed, example} = env;
+  const { articleEmbed, articleFeed, example } = env;
 
   let bundle;
 
-  if (articleFeed) {
+  if ( articleFeed ) {
     bundle = 'articleFeed';
-  } else if (articleEmbed) {
+  } else if ( articleEmbed ) {
     bundle = 'articleEmbed';
-  } else if (example) {
+  } else if ( example ) {
     bundle = 'example';
   }
 
   return bundle;
-}
+};
 
 const setEntry = env => {
-  const bundle = extractBundleName(env);
+  const bundle = extractBundleName( env );
 
   const index = `${bundle}Index`;
   const loader = `${bundle}Loader`;
@@ -36,7 +36,7 @@ const setEntry = env => {
 };
 
 const setOutput = ( env, mode ) => {
-  const bundle = extractBundleName(env);
+  const bundle = extractBundleName( env );
 
   const base = {
     filename: mode === 'development' ? 'dev-[name].js' : 'gpalab-[name].min.js',

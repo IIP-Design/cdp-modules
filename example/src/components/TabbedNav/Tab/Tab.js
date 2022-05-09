@@ -6,7 +6,7 @@ import style from './Tab.module.scss';
 
 const Tab = ( { activeTab, path, title } ) => (
   <li className={ activeTab === `/${path}` ? `${style['list-item']} ${style.active}` : style['list-item'] }>
-    <Link className={style['nav-link']} to={ path }>
+    <Link className={ style['nav-link'] } to={ path }>
       { title }
     </Link>
   </li>

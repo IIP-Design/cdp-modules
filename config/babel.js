@@ -3,7 +3,10 @@ const setBabelConfig = cssModuleNames => {
 
   return {
     presets: [
-      ['@babel/preset-env', { modules: isTest ? 'commonjs' : false }],
+      [
+        '@babel/preset-env',
+        { modules: isTest ? 'commonjs' : false },
+      ],
       '@babel/preset-react',
     ],
     plugins: [

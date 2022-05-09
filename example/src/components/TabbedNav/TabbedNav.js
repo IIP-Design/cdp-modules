@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 import Tab from './Tab/Tab';
 
@@ -18,8 +17,8 @@ const TabbedNav = () => {
   }, [location, setActive] );
 
   return (
-    <nav className={style.nav}>
-      <ul className={style.list}>
+    <nav className={ style.nav }>
+      <ul className={ style.list }>
         <Tab activeTab={ active } path="embed" title="Article Embed" />
         <Tab activeTab={ active } path="feed" title="Article Feed" />
       </ul>
