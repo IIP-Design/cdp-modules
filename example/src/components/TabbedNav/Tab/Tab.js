@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 
-import './Tab.module.scss';
+import style from './Tab.module.scss';
 
 const Tab = ( { activeTab, path, title } ) => (
-  <li styleName={ `list-item${activeTab === `/${path}` ? ' active' : ''}` }>
-    <Link styleName="nav-link" to={ path }>
+  <li className={ activeTab === `/${path}` ? `${style['list-item']} ${style.active}` : style['list-item'] }>
+    <Link className={style['nav-link']} to={ path }>
       { title }
     </Link>
   </li>

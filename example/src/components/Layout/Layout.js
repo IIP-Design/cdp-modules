@@ -1,20 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { LocationProvider } from '@reach/router';
+import { Outlet } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import TabbedNav from '../TabbedNav/TabbedNav';
 
-import './Layout.module.scss';
+import style from './Layout.module.scss';
 
 const Layout = ( { children } ) => (
   <Fragment>
     <Header />
-    <main styleName="main">
-      <LocationProvider>
-        <TabbedNav />
-      </LocationProvider>
-      { children }
+    <main className={style.main}>
+      <TabbedNav />
+      <Outlet />
     </main>
   </Fragment>
 );
