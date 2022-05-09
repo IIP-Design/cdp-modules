@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import useScript from '../../hooks/useScript';
 import { getConfig } from './utils';
 
-import './Pages.module.scss';
+import style from './Pages.module.scss';
 
 const ArticleEmbed = () => {
   const data = [
@@ -15,7 +15,7 @@ const ArticleEmbed = () => {
 
   return (
     <Fragment>
-      <h2 styleName="title">Sample Article Embed:</h2>
+      <h2 className={style.title}>Sample Article Embed:</h2>
       <div id="cdp-article-embed" />
     </Fragment>
   );

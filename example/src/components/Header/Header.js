@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './Header.module.scss';
+import style from './Header.module.scss';
 
 const Header = () => (
-  <header role="banner" styleName="header">
-    <div styleName="content">
+  <header role="banner" className={style.header}>
+    <div className={style.content}>
       <img
         alt="U.S. Department of State seal"
         src="./assets/dos_seal.svg"
-        styleName="seal"
+        className={style.seal}
       />
-      <h1 styleName="title">CDP Modules Example Site</h1>
+      <h1 className={style.title}>CDP Modules Example Site</h1>
     </div>
   </header>
 );

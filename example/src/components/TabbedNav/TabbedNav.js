@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Tab from './Tab/Tab';
 
-import './TabbedNav.module.scss';
+import style from './TabbedNav.module.scss';
 
 const TabbedNav = () => {
   const [active, setActive] = useState( 'article-embed' );
@@ -18,10 +18,10 @@ const TabbedNav = () => {
   }, [location, setActive] );
 
   return (
-    <nav styleName="nav">
-      <ul styleName="list">
-        <Tab activeTab={ active } path="article-embed" title="Article Embed" />
-        <Tab activeTab={ active } path="article-feed" title="Article Feed" />
+    <nav className={style.nav}>
+      <ul className={style.list}>
+        <Tab activeTab={ active } path="embed" title="Article Embed" />
+        <Tab activeTab={ active } path="feed" title="Article Feed" />
       </ul>
     </nav>
   );

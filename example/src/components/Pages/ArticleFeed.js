@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import useScript from '../../hooks/useScript';
 import { getConfig } from './utils';
 
-import './Pages.module.scss';
+import style from './Pages.module.scss';
 
 const ArticleFeed = () => {
   const initialState = {
@@ -16,7 +16,7 @@ const ArticleFeed = () => {
 
   return (
     <Fragment>
-      <h2 styleName="title">Sample Article Feed:</h2>
+      <h2 className={style.title}>Sample Article Feed:</h2>
       <div id="cdp-article-feed" />
     </Fragment>
   );
