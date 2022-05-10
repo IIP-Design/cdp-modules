@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const babel = require( './babel' );
 const css = require( './css-modules' );
 const paths = require( './paths' );
-const plugins = require( './plugins' );
+const plugins = require( './webpack.plugins' );
 const utils = require( './utils' );
 
 module.exports = ( env, argv ) => {
@@ -20,12 +20,17 @@ module.exports = ( env, argv ) => {
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.jsx?$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            options: babel.setBabelConfig( cssModuleNames ),
+            options: babel.setBabelConfig(),
           },
+        },
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
         },
         {
           include: /\.module\.(sa|sc|c)ss$/,
@@ -70,7 +75,7 @@ module.exports = ( env, argv ) => {
     plugins: plugins.loadPlugins( argv.mode, env ),
     resolve: {
       extensions: [
-        '*', '.js', '.jsx',
+        '*', '.js', '.jsx', '.ts', '.tsx',
       ],
     },
     target: 'web',

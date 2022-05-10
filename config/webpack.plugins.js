@@ -26,13 +26,12 @@ const dotEnv = bundle => new DotEnv( {
 } );
 
 const html = () => new HtmlWebpackPlugin( {
-  favicon: `${paths.exampleAssets}/favicon.ico`,
   title: 'Modules Example Site',
   template: paths.exampleHTML,
 } );
 
 const analyzer = env => {
-  const bundle = utils.extractBundleName(env);
+  const bundle = utils.extractBundleName( env );
 
   return new BundleAnalyzerPlugin( {
     analyzerMode: 'static',
@@ -40,12 +39,12 @@ const analyzer = env => {
     openAnalyzer: true,
     reportFilename: `stats/${bundle}Stats.html`,
     statsFilename: `stats/${bundle}Stats.json`,
-  } )
+  } );
 };
 
 const loadPlugins = ( mode, env ) => {
   // Extract the name of package build built.
-  const bundle = utils.extractBundleName(env);
+  const bundle = utils.extractBundleName( env );
 
   const common = [css( mode )];
 
@@ -57,7 +56,7 @@ const loadPlugins = ( mode, env ) => {
     ];
   }
 
-  if ( bundle === 'articleEmbed' ||  bundle === 'articleFeed' ) {
+  if ( bundle === 'articleEmbed' || bundle === 'articleFeed' ) {
     return [
       ...common,
       dotEnv( bundle ),
