@@ -13,18 +13,6 @@ const setBabelConfig = cssModuleNames => {
       '@babel/plugin-transform-runtime',
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-optional-chaining',
-      // [
-      //   'babel-plugin-react-css-modules',
-      //   {
-      //     filetypes: {
-      //       '.scss': {
-      //         plugins: ['postcss-nested'],
-      //         syntax: 'postcss-scss',
-      //       },
-      //     },
-      //     generateScopedName: cssModuleNames,
-      //   },
-      // ],
     ],
   };
 };
