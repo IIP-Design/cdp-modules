@@ -19,5 +19,6 @@ module.exports = {
   exampleAssets: resolveApp( 'example/assets' ),
   exampleIndex: resolveApp( 'example/src/index.js' ),
   exampleHTML: resolveApp( 'example/index.html' ),
+  modules: resolveApp( './node_modules' ),
   root: resolveApp( './' ),
 };

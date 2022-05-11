@@ -77,6 +77,7 @@ module.exports = ( env, argv ) => {
       extensions: [
         '*', '.js', '.jsx', '.ts', '.tsx',
       ],
+      modules: [ paths.modules ],
     },
     target: 'web',
   };
