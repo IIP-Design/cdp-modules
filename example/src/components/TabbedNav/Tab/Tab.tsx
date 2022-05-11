@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom';
 
 import style from './Tab.module.scss';
 
-const Tab = ( { activeTab, path, title } ) => (
+interface ITabProps {
+  activeTab: string,
+  path: string,
+  title: string,
+}
+
+const Tab: React.VFC<ITabProps> = ( { activeTab, path, title } ) => (
   <li className={ activeTab === `/${path}` ? `${style['list-item']} ${style.active}` : style['list-item'] }>
     <Link className={ style['nav-link'] } to={ path }>
       { title }

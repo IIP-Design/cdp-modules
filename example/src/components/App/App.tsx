@@ -11,11 +11,11 @@ import './App.scss';
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={ <Layout /> }>
-        <Route index element={ <Home /> } />
-        <Route path="embed" element={ <ArticleEmbed /> } />
-        <Route path="feed" element={ <ArticleFeed /> } />
-        <Route path="*" element={ <Home /> } />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="embed" element={<ArticleEmbed />} />
+        <Route path="feed" element={<ArticleFeed />} />
+        <Route path="*" element={<Home />} />
       </Route>
     </Routes>
   </BrowserRouter>
